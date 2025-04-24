@@ -1,7 +1,7 @@
 // app/projects/page.tsx
 
 import Link from "next/link";
-import { Github, ExternalLink } from "lucide-react";
+import { Github, ExternalLink, ArrowRight } from "lucide-react";
 
 const projects = [
   {
@@ -35,13 +35,16 @@ const projects = [
 
 export default function Projects() {
   return (
-    <div className="min-h-screen py-20">
+    <div className="min-h-screen py-24 bg-gradient-to-b from-white to-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">My Projects</h1>
-          <p className="text-xl text-gray-600">
+        <div className="text-center mb-20">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 tracking-tight font-sans py-2">
+            My <span className="inline-block">Projects</span>
+          </h1>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Here are some of the projects I've worked on during my professional
-            journey
+            journey. Each project represents a unique challenge and learning
+            experience.
           </p>
         </div>
 
@@ -49,33 +52,36 @@ export default function Projects() {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="group relative bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+              className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
             >
-              <div className="aspect-w-16 aspect-h-9 bg-gray-200">
-                {/* Add your project images here */}
-                <div className="w-full h-48 bg-gradient-to-br from-blue-500 to-purple-500"></div>
+              <div className="aspect-w-16 aspect-h-9 bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500">
+                <div className="w-full h-48 bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 opacity-90 group-hover:opacity-100 transition-opacity"></div>
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                <p className="text-gray-600 mb-4">{project.description}</p>
-                <div className="flex flex-wrap gap-2 mb-4">
+              <div className="p-8">
+                <h3 className="text-2xl font-semibold mb-4 text-gray-800">
+                  {project.title}
+                </h3>
+                <p className="text-gray-600 mb-6 leading-relaxed">
+                  {project.description}
+                </p>
+                <div className="flex flex-wrap gap-2 mb-6">
                   {project.tags.map((tag, tagIndex) => (
                     <span
                       key={tagIndex}
-                      className="px-3 py-1 text-sm bg-gray-100 text-gray-700 rounded-full"
+                      className="px-4 py-1.5 text-sm bg-gradient-to-r from-indigo-50 to-purple-50 text-indigo-700 rounded-full font-medium"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
-                <div className="flex gap-4">
+                <div className="flex gap-6">
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center text-gray-600 hover:text-blue-600 transition-colors"
+                    className="group/link inline-flex items-center text-gray-700 hover:text-indigo-600 transition-colors"
                   >
-                    <Github className="h-5 w-5 mr-2" />
+                    <Github className="h-5 w-5 mr-2 group-hover/link:scale-110 transition-transform" />
                     View Code
                   </a>
                   {project.live && (
@@ -83,9 +89,9 @@ export default function Projects() {
                       href={project.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center text-gray-600 hover:text-blue-600 transition-colors"
+                      className="group/link inline-flex items-center text-gray-700 hover:text-indigo-600 transition-colors"
                     >
-                      <ExternalLink className="h-5 w-5 mr-2" />
+                      <ExternalLink className="h-5 w-5 mr-2 group-hover/link:scale-110 transition-transform" />
                       Live Demo
                     </a>
                   )}
@@ -93,6 +99,16 @@ export default function Projects() {
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="mt-16 text-center">
+          <Link
+            href="/contact"
+            className="inline-flex items-center px-8 py-4 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white hover:from-indigo-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+          >
+            Let's Work Together
+            <ArrowRight className="ml-2 h-5 w-5" />
+          </Link>
         </div>
       </div>
     </div>
