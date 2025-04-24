@@ -1,11 +1,4 @@
-import {
-  Mail,
-  Github,
-  Linkedin,
-  Twitter,
-  MapPin,
-  Download,
-} from "lucide-react";
+import { Mail, Github, Linkedin, MapPin, Download } from "lucide-react";
 
 export default function Contact() {
   return (
@@ -17,7 +10,7 @@ export default function Contact() {
           </h1>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
             Have a question or want to work together? Feel free to reach out!
-            I'm always open to discussing new projects, creative ideas, or
+            I&apos;m always open to discussing new projects, creative ideas, or
             opportunities to be part of your vision.
           </p>
         </div>

@@ -42,9 +42,9 @@ export default function Projects() {
             My <span className="inline-block">Projects</span>
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Here are some of the projects I've worked on during my professional
-            journey. Each project represents a unique challenge and learning
-            experience.
+            Here are some of the projects I&apos;ve worked on during my
+            professional journey. Each project represents a unique challenge and
+            learning experience.
           </p>
         </div>
 
@@ -106,7 +106,7 @@ export default function Projects() {
             href="/contact"
             className="inline-flex items-center px-8 py-4 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white hover:from-indigo-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
           >
-            Let's Work Together
+            Let&apos;s Work Together
             <ArrowRight className="ml-2 h-5 w-5" />
           </Link>
         </div>

@@ -1,11 +1,4 @@
-import {
-  Code,
-  Database,
-  Cpu,
-  Briefcase,
-  GraduationCap,
-  Award,
-} from "lucide-react";
+import { Code, Database, Cpu, Briefcase } from "lucide-react";
 
 const skills = [
   {
@@ -73,14 +66,14 @@ export default function About() {
           </h1>
           <div className="max-w-3xl mx-auto">
             <p className="text-xl text-gray-700 leading-relaxed mb-6">
-              I'm a Software Engineer with a strong background in mobile
+              I&apos;m a Software Engineer with a strong background in mobile
               development, data engineering, and backend systems. I graduated
               from Kirklareli University with a B.Sc. in Software Engineering
               (GPA: 3.34/4).
             </p>
             <p className="text-xl text-gray-700 leading-relaxed">
-              I'm passionate about clean code, practical problem solving, and
-              continuous learning in software and data.
+              I&apos;m passionate about clean code, practical problem solving,
+              and continuous learning in software and data.
             </p>
           </div>
         </div>
