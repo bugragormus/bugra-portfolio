@@ -9,7 +9,6 @@ import {
   GraduationCap,
   Heart,
   Globe,
-  BookOpen,
   Github,
   Brain,
   LineChart,
