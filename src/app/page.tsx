@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Code, Database, Lightbulb } from "lucide-react";
 
 export default function Home() {
@@ -9,6 +10,15 @@ export default function Home() {
         <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="animate-fade-in">
+            <div className="mb-8 flex justify-center">
+              <Image
+                src="/logo.png"
+                alt="Bugra Gormus Logo"
+                width={150}
+                height={150}
+                className="rounded-full"
+              />
+            </div>
             <h1 className="text-6xl md:text-8xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 mb-6 tracking-tight font-sans py-2">
               Hello, I&apos;m <span className="inline-block">Bugra</span>
             </h1>
