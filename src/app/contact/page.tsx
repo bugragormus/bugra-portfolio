@@ -39,7 +39,7 @@ export default function Contact() {
       } else {
         throw new Error("Failed to submit form");
       }
-    } catch (error) {
+    } catch {
       setSubmitStatus({
         type: "error",
         message: "Oops! Something went wrong. Please try again later.",

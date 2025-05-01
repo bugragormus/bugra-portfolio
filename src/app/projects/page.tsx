@@ -12,7 +12,7 @@ import {
   Wrench,
   Globe,
 } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 const projectCategories = [
   {
