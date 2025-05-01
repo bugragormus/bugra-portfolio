@@ -1,3 +1,5 @@
+"use client";
+
 // app/projects/page.tsx
 
 import Link from "next/link";
@@ -10,6 +12,7 @@ import {
   Wrench,
   Globe,
 } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const projectCategories = [
   {
@@ -117,51 +120,95 @@ const projectCategories = [
 
 export default function Projects() {
   return (
-    <div className="min-h-screen py-24 bg-gradient-to-b from-white to-gray-50">
+    <div className="min-h-screen py-24 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-20">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 tracking-tight font-sans py-2">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-20"
+        >
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 dark:from-indigo-400 dark:via-purple-400 dark:to-pink-400 tracking-tight font-sans py-2"
+          >
             My <span className="inline-block">Projects</span>
-          </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto"
+          >
             Explore my portfolio of projects across different domains, from
             machine learning to web development.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
-        {projectCategories.map((category) => (
-          <div key={category.id} className="mb-20">
-            <div className="flex items-center gap-3 mb-8">
-              <category.icon className="h-8 w-8 text-indigo-600" />
-              <h2 className="text-3xl font-bold text-gray-800">
+        {projectCategories.map((category, categoryIndex) => (
+          <motion.div
+            key={category.id}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: categoryIndex * 0.2 }}
+            className="mb-20"
+          >
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: categoryIndex * 0.2 + 0.2 }}
+              className="flex items-center gap-3 mb-8"
+            >
+              <category.icon className="h-8 w-8 text-indigo-600 dark:text-indigo-400" />
+              <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-200">
                 {category.title}
               </h2>
-            </div>
+            </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {category.projects.map((project, index) => (
-                <div
-                  key={index}
-                  className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+              {category.projects.map((project, projectIndex) => (
+                <motion.div
+                  key={projectIndex}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: 0.5,
+                    delay: (categoryIndex * 2 + projectIndex) * 0.1,
+                  }}
+                  className="group relative bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
                 >
-                  <div className="aspect-w-16 aspect-h-9 bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500">
-                    <div className="w-full h-48 bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 opacity-90 group-hover:opacity-100 transition-opacity"></div>
+                  <div className="aspect-w-16 aspect-h-9 bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 dark:from-indigo-600 dark:via-purple-600 dark:to-pink-600">
+                    <div className="w-full h-48 bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 dark:from-indigo-600 dark:via-purple-600 dark:to-pink-600 opacity-90 group-hover:opacity-100 transition-opacity"></div>
                   </div>
                   <div className="p-8">
-                    <h3 className="text-2xl font-semibold mb-4 text-gray-800">
+                    <h3 className="text-2xl font-semibold mb-4 text-gray-800 dark:text-gray-200">
                       {project.title}
                     </h3>
-                    <p className="text-gray-600 mb-6 leading-relaxed">
+                    <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
                       {project.description}
                     </p>
                     <div className="flex flex-wrap gap-2 mb-6">
                       {project.tags.map((tag, tagIndex) => (
-                        <span
+                        <motion.span
                           key={tagIndex}
-                          className="px-4 py-1.5 text-sm bg-gradient-to-r from-indigo-50 to-purple-50 text-indigo-700 rounded-full font-medium"
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: true }}
+                          transition={{
+                            duration: 0.3,
+                            delay:
+                              (categoryIndex * 2 + projectIndex) * 0.1 +
+                              tagIndex * 0.1,
+                          }}
+                          className="px-4 py-1.5 text-sm bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-gray-700 dark:to-gray-600 text-indigo-700 dark:text-indigo-300 rounded-full font-medium"
                         >
                           {tag}
-                        </span>
+                        </motion.span>
                       ))}
                     </div>
                     <div className="flex gap-6">
@@ -169,7 +216,7 @@ export default function Projects() {
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group/link inline-flex items-center text-gray-700 hover:text-indigo-600 transition-colors"
+                        className="group/link inline-flex items-center text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
                       >
                         <Github className="h-5 w-5 mr-2 group-hover/link:scale-110 transition-transform" />
                         View Code
@@ -179,7 +226,7 @@ export default function Projects() {
                           href={project.live}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="group/link inline-flex items-center text-gray-700 hover:text-indigo-600 transition-colors"
+                          className="group/link inline-flex items-center text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
                         >
                           <ExternalLink className="h-5 w-5 mr-2 group-hover/link:scale-110 transition-transform" />
                           Live Demo
@@ -187,21 +234,27 @@ export default function Projects() {
                       )}
                     </div>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
         ))}
 
-        <div className="mt-16 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mt-16 text-center"
+        >
           <Link
             href="/contact"
-            className="inline-flex items-center px-8 py-4 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white hover:from-indigo-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+            className="inline-flex items-center px-8 py-4 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-500 dark:to-purple-500 text-white hover:from-indigo-700 hover:to-purple-700 dark:hover:from-indigo-600 dark:hover:to-purple-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
           >
             Let&apos;s Work Together
             <ArrowRight className="ml-2 h-5 w-5" />
           </Link>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

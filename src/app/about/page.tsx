@@ -252,7 +252,7 @@ const funFacts = [
 
 export default function About() {
   return (
-    <div className="min-h-screen py-24 bg-gradient-to-b from-white to-gray-50">
+    <div className="min-h-screen py-24 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Hero Section */}
         <motion.div
@@ -261,22 +261,22 @@ export default function About() {
           transition={{ duration: 0.5 }}
           className="text-center mb-20"
         >
-          <h1 className="text-5xl md:text-6xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600">
+          <h1 className="text-5xl md:text-6xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 dark:from-indigo-400 dark:via-purple-400 dark:to-pink-400">
             About Me
           </h1>
           <div className="max-w-3xl mx-auto">
-            <p className="text-xl text-gray-700 leading-relaxed mb-6">
+            <p className="text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
               I&apos;m a software engineer passionate about machine learning,
               data engineering, and mobile/backend systems. Currently pursuing
               my MSc in Artificial Intelligence through the prestigious YLSY
               scholarship program sponsored by the Turkish Government.
             </p>
-            <p className="text-xl text-gray-700 leading-relaxed mb-6">
+            <p className="text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
               My academic journey includes a B.Sc. in Software Engineering from
               Kirklareli University, where I completed my thesis on retinal
               disease classification using deep learning techniques.
             </p>
-            <p className="text-xl text-gray-700 leading-relaxed">
+            <p className="text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
               I balance strong engineering skills with a focus on clean
               architecture, practical delivery, and lifelong learning. My goal
               is to build robust, scalable systems that solve real-world
@@ -293,7 +293,7 @@ export default function About() {
           viewport={{ once: true }}
           className="mb-24"
         >
-          <h2 className="text-4xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600">
+          <h2 className="text-4xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400">
             Skills & Expertise
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -304,19 +304,19 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+                className="group bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
               >
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-indigo-50 to-purple-50 flex items-center justify-center mb-6 group-hover:from-indigo-100 group-hover:to-purple-100 transition-colors">
-                  <skillGroup.icon className="h-8 w-8 text-indigo-600" />
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-gray-700 dark:to-gray-600 flex items-center justify-center mb-6 group-hover:from-indigo-100 group-hover:to-purple-100 dark:group-hover:from-gray-600 dark:group-hover:to-gray-500 transition-colors">
+                  <skillGroup.icon className="h-8 w-8 text-indigo-600 dark:text-indigo-400" />
                 </div>
-                <h3 className="text-2xl font-semibold mb-6 text-gray-800">
+                <h3 className="text-2xl font-semibold mb-6 text-gray-800 dark:text-gray-200">
                   {skillGroup.category}
                 </h3>
                 <div className="flex flex-wrap gap-3">
                   {skillGroup.items.map((skill, skillIndex) => (
                     <span
                       key={skillIndex}
-                      className="px-4 py-1.5 text-sm bg-gradient-to-r from-indigo-50 to-purple-50 text-indigo-700 rounded-full font-medium"
+                      className="px-4 py-1.5 text-sm bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-gray-700 dark:to-gray-600 text-indigo-700 dark:text-indigo-300 rounded-full font-medium"
                     >
                       {skill}
                     </span>
@@ -335,7 +335,7 @@ export default function About() {
           viewport={{ once: true }}
           className="mb-24"
         >
-          <h2 className="text-4xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600">
+          <h2 className="text-4xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400">
             Certifications
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -346,20 +346,22 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+                className="group bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
               >
                 <div className="flex items-start gap-6">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-indigo-50 to-purple-50 flex items-center justify-center group-hover:from-indigo-100 group-hover:to-purple-100 transition-colors">
-                    <cert.icon className="h-8 w-8 text-indigo-600" />
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-gray-700 dark:to-gray-600 flex items-center justify-center group-hover:from-indigo-100 group-hover:to-purple-100 dark:group-hover:from-gray-600 dark:group-hover:to-gray-500 transition-colors">
+                    <cert.icon className="h-8 w-8 text-indigo-600 dark:text-indigo-400" />
                   </div>
                   <div className="flex-1">
                     <div className="flex justify-between items-start mb-4">
                       <div>
-                        <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                        <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-2">
                           {cert.title}
                         </h3>
-                        <p className="text-gray-600 mb-2">{cert.issuer}</p>
-                        <span className="text-sm text-gray-500 bg-gray-50 px-4 py-2 rounded-full">
+                        <p className="text-gray-600 dark:text-gray-400 mb-2">
+                          {cert.issuer}
+                        </p>
+                        <span className="text-sm text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-700 px-4 py-2 rounded-full">
                           {cert.year}
                         </span>
                       </div>
@@ -369,7 +371,7 @@ export default function About() {
                         href={cert.verificationUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center text-indigo-600 hover:text-indigo-700 transition-colors text-sm"
+                        className="inline-flex items-center text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors text-sm"
                       >
                         <Award className="h-4 w-4 mr-2" />
                         Verify Certificate
@@ -390,7 +392,7 @@ export default function About() {
           viewport={{ once: true }}
           className="mb-24"
         >
-          <h2 className="text-4xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600">
+          <h2 className="text-4xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400">
             Education
           </h2>
           <div className="space-y-8">
@@ -401,25 +403,27 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+                className="group bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
               >
                 <div className="flex items-start gap-6">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-indigo-50 to-purple-50 flex items-center justify-center group-hover:from-indigo-100 group-hover:to-purple-100 transition-colors">
-                    <edu.icon className="h-8 w-8 text-indigo-600" />
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-gray-700 dark:to-gray-600 flex items-center justify-center group-hover:from-indigo-100 group-hover:to-purple-100 dark:group-hover:from-gray-600 dark:group-hover:to-gray-500 transition-colors">
+                    <edu.icon className="h-8 w-8 text-indigo-600 dark:text-indigo-400" />
                   </div>
                   <div className="flex-1">
                     <div className="flex justify-between items-start mb-4">
                       <div>
-                        <h3 className="text-2xl font-semibold text-gray-800">
+                        <h3 className="text-2xl font-semibold text-gray-800 dark:text-gray-200">
                           {edu.degree}
                         </h3>
-                        <p className="text-gray-600 text-lg">{edu.school}</p>
+                        <p className="text-gray-600 dark:text-gray-400 text-lg">
+                          {edu.school}
+                        </p>
                       </div>
-                      <span className="text-sm text-gray-500 bg-gray-50 px-4 py-2 rounded-full">
+                      <span className="text-sm text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-700 px-4 py-2 rounded-full">
                         {edu.period}
                       </span>
                     </div>
-                    <p className="text-gray-600 leading-relaxed whitespace-pre-line">
+                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed whitespace-pre-line">
                       {edu.description}
                     </p>
                   </div>
@@ -437,7 +441,7 @@ export default function About() {
           viewport={{ once: true }}
           className="mb-24"
         >
-          <h2 className="text-4xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600">
+          <h2 className="text-4xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400">
             Work Experience
           </h2>
           <div className="space-y-8">
@@ -448,27 +452,27 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+                className="group bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
               >
                 <div className="flex items-start gap-6">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-indigo-50 to-purple-50 flex items-center justify-center group-hover:from-indigo-100 group-hover:to-purple-100 transition-colors">
-                    <experience.icon className="h-8 w-8 text-indigo-600" />
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-gray-700 dark:to-gray-600 flex items-center justify-center group-hover:from-indigo-100 group-hover:to-purple-100 dark:group-hover:from-gray-600 dark:group-hover:to-gray-500 transition-colors">
+                    <experience.icon className="h-8 w-8 text-indigo-600 dark:text-indigo-400" />
                   </div>
                   <div className="flex-1">
                     <div className="flex justify-between items-start mb-4">
                       <div>
-                        <h3 className="text-2xl font-semibold text-gray-800">
+                        <h3 className="text-2xl font-semibold text-gray-800 dark:text-gray-200">
                           {experience.title}
                         </h3>
-                        <p className="text-gray-600 text-lg">
+                        <p className="text-gray-600 dark:text-gray-400 text-lg">
                           {experience.company}
                         </p>
                       </div>
-                      <span className="text-sm text-gray-500 bg-gray-50 px-4 py-2 rounded-full">
+                      <span className="text-sm text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-700 px-4 py-2 rounded-full">
                         {experience.period}
                       </span>
                     </div>
-                    <p className="text-gray-600 leading-relaxed whitespace-pre-line">
+                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed whitespace-pre-line">
                       {experience.description}
                     </p>
                   </div>
@@ -486,7 +490,7 @@ export default function About() {
           viewport={{ once: true }}
           className="mb-24"
         >
-          <h2 className="text-4xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600">
+          <h2 className="text-4xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400">
             Featured Projects
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -497,19 +501,19 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+                className="group bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
               >
                 <div className="flex items-start gap-6">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-indigo-50 to-purple-50 flex items-center justify-center group-hover:from-indigo-100 group-hover:to-purple-100 transition-colors">
-                    <project.icon className="h-8 w-8 text-indigo-600" />
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-gray-700 dark:to-gray-600 flex items-center justify-center group-hover:from-indigo-100 group-hover:to-purple-100 dark:group-hover:from-gray-600 dark:group-hover:to-gray-500 transition-colors">
+                    <project.icon className="h-8 w-8 text-indigo-600 dark:text-indigo-400" />
                   </div>
                   <div className="flex-1">
                     <div className="flex justify-between items-start mb-4">
                       <div>
-                        <h3 className="text-2xl font-semibold text-gray-800">
+                        <h3 className="text-2xl font-semibold text-gray-800 dark:text-gray-200">
                           {project.title}
                         </h3>
-                        <p className="text-gray-600 text-lg">
+                        <p className="text-gray-600 dark:text-gray-400 text-lg">
                           {project.description}
                         </p>
                       </div>
@@ -518,7 +522,7 @@ export default function About() {
                       {project.tech.map((tech, techIndex) => (
                         <span
                           key={techIndex}
-                          className="px-3 py-1 text-sm bg-gradient-to-r from-indigo-50 to-purple-50 text-indigo-700 rounded-full font-medium"
+                          className="px-3 py-1 text-sm bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-gray-700 dark:to-gray-600 text-indigo-700 dark:text-indigo-300 rounded-full font-medium"
                         >
                           {tech}
                         </span>
@@ -528,7 +532,7 @@ export default function About() {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center text-gray-600 hover:text-indigo-600 transition-colors"
+                      className="inline-flex items-center text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
                     >
                       <Github className="h-5 w-5 mr-2" />
                       View on GitHub
@@ -547,7 +551,7 @@ export default function About() {
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600">
+          <h2 className="text-4xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400">
             Beyond Tech
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -558,15 +562,15 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+                className="group bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
               >
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-indigo-50 to-purple-50 flex items-center justify-center mb-6 group-hover:from-indigo-100 group-hover:to-purple-100 transition-colors">
-                  <fact.icon className="h-8 w-8 text-indigo-600" />
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-gray-700 dark:to-gray-600 flex items-center justify-center mb-6 group-hover:from-indigo-100 group-hover:to-purple-100 dark:group-hover:from-gray-600 dark:group-hover:to-gray-500 transition-colors">
+                  <fact.icon className="h-8 w-8 text-indigo-600 dark:text-indigo-400" />
                 </div>
-                <h3 className="text-xl font-semibold mb-4 text-gray-800">
+                <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">
                   {fact.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
                   {fact.description}
                 </p>
               </motion.div>
