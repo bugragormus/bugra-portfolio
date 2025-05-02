@@ -13,7 +13,9 @@ import {
   Brain,
   LineChart,
   Bot,
+  ArrowRight,
 } from "lucide-react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 
 const skills = [
@@ -251,6 +253,13 @@ const funFacts = [
 ];
 
 export default function About() {
+  const [visibleCertifications, setVisibleCertifications] = useState(4);
+
+  const loadMore = () => {
+    setVisibleCertifications((prev: number) =>
+      Math.min(prev + 4, certifications.length)
+    );
+  };
   return (
     <div className="min-h-screen py-24 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -339,49 +348,62 @@ export default function About() {
             Certifications
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {certifications.map((cert, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="group bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
-              >
-                <div className="flex items-start gap-6">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-gray-700 dark:to-gray-600 flex items-center justify-center group-hover:from-indigo-100 group-hover:to-purple-100 dark:group-hover:from-gray-600 dark:group-hover:to-gray-500 transition-colors">
-                    <cert.icon className="h-8 w-8 text-indigo-600 dark:text-indigo-400" />
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex justify-between items-start mb-4">
-                      <div>
-                        <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-2">
-                          {cert.title}
-                        </h3>
-                        <p className="text-gray-600 dark:text-gray-400 mb-2">
-                          {cert.issuer}
-                        </p>
-                        <span className="text-sm text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-700 px-4 py-2 rounded-full">
-                          {cert.year}
-                        </span>
-                      </div>
+            {certifications
+              .slice(0, visibleCertifications)
+              .map((cert, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="group bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+                >
+                  <div className="flex items-start gap-6">
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-gray-700 dark:to-gray-600 flex items-center justify-center group-hover:from-indigo-100 group-hover:to-purple-100 dark:group-hover:from-gray-600 dark:group-hover:to-gray-500 transition-colors">
+                      <cert.icon className="h-8 w-8 text-indigo-600 dark:text-indigo-400" />
                     </div>
-                    {cert.verificationUrl && (
-                      <a
-                        href={cert.verificationUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors text-sm"
-                      >
-                        <Award className="h-4 w-4 mr-2" />
-                        Verify Certificate
-                      </a>
-                    )}
+                    <div className="flex-1">
+                      <div className="flex justify-between items-start mb-4">
+                        <div>
+                          <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-2">
+                            {cert.title}
+                          </h3>
+                          <p className="text-gray-600 dark:text-gray-400 mb-2">
+                            {cert.issuer}
+                          </p>
+                          <span className="text-sm text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-700 px-4 py-2 rounded-full">
+                            {cert.year}
+                          </span>
+                        </div>
+                      </div>
+                      {cert.verificationUrl && (
+                        <a
+                          href={cert.verificationUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors text-sm"
+                        >
+                          <Award className="h-4 w-4 mr-2" />
+                          Verify Certificate
+                        </a>
+                      )}
+                    </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              ))}
           </div>
+          {visibleCertifications < certifications.length && (
+            <div className="text-center mt-8">
+              <button
+                onClick={loadMore}
+                className="inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 dark:bg-indigo-400 text-white rounded-lg hover:bg-indigo-700 dark:hover:bg-indigo-300 transition-colors duration-300"
+              >
+                <ArrowRight className="h-5 w-5 rotate-90" />
+                Load More Certifications
+              </button>
+            </div>
+          )}
         </motion.section>
 
         {/* Education Section */}

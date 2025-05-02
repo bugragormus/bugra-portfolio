@@ -180,21 +180,20 @@ export default function Projects() {
                     duration: 0.5,
                     delay: (categoryIndex * 2 + projectIndex) * 0.1,
                   }}
-                  className="group relative bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+                  className="group relative bg-gray-900/50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-800/50 hover:border-gray-700/50"
                 >
-                  <div className="aspect-w-16 aspect-h-9 bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 dark:from-indigo-600 dark:via-purple-600 dark:to-pink-600">
-                    <div className="w-full h-48 bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 dark:from-indigo-600 dark:via-purple-600 dark:to-pink-600 opacity-90 group-hover:opacity-100 transition-opacity"></div>
-                  </div>
-                  <div className="p-8">
-                    <h3 className="text-2xl font-semibold mb-4 text-gray-800 dark:text-gray-200">
+                  <div className="aspect-w-16 aspect-h-9 relative overflow-hidden"></div>
+                  <div className="p-8 bg-gradient-to-b from-gray-900/50 to-gray-800/30 backdrop-blur-sm">
+                    <h3 className="text-2xl font-semibold mb-4 text-white/90 group-hover:text-white">
                       {project.title}
                     </h3>
-                    <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+                    <p className="text-gray-300 mb-6 leading-relaxed">
                       {project.description}
                     </p>
                     <div className="flex flex-wrap gap-2 mb-6">
                       {project.tags.map((tag, tagIndex) => (
                         <motion.span
+                          className="bg-gradient-to-r from-indigo-500/20 via-purple-500/20 to-pink-500/20 text-white/80 px-3 py-1 rounded-full text-sm font-medium transition-colors hover:from-indigo-500 hover:via-purple-500 hover:to-pink-500 hover:text-white/95"
                           key={tagIndex}
                           initial={{ opacity: 0, scale: 0.8 }}
                           whileInView={{ opacity: 1, scale: 1 }}
@@ -205,28 +204,29 @@ export default function Projects() {
                               (categoryIndex * 2 + projectIndex) * 0.1 +
                               tagIndex * 0.1,
                           }}
-                          className="px-4 py-1.5 text-sm bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-gray-700 dark:to-gray-600 text-indigo-700 dark:text-indigo-300 rounded-full font-medium"
                         >
                           {tag}
                         </motion.span>
                       ))}
                     </div>
-                    <div className="flex gap-6">
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group/link inline-flex items-center text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
-                      >
-                        <Github className="h-5 w-5 mr-2 group-hover/link:scale-110 transition-transform" />
-                        View Code
-                      </a>
-                      {project.live && (
+                    <div className="flex gap-4">
+                      {project.github && project.github !== null && (
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-4 py-2 bg-gray-800/50 hover:bg-gray-700/50 rounded-lg transition-colors duration-300 group/link"
+                        >
+                          <Github className="h-5 w-5 mr-2 group-hover/link:scale-110 transition-transform" />
+                          View Code
+                        </a>
+                      )}
+                      {project.live && project.live !== null && (
                         <a
                           href={project.live}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="group/link inline-flex items-center text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+                          className="inline-flex items-center gap-2 px-4 py-2 bg-gray-800/50 hover:bg-gray-700/50 rounded-lg transition-colors duration-300 group/link"
                         >
                           <ExternalLink className="h-5 w-5 mr-2 group-hover/link:scale-110 transition-transform" />
                           Live Demo
