@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const skills = [
   {
@@ -253,352 +254,254 @@ const funFacts = [
 ];
 
 export default function About() {
-  const [visibleCertifications, setVisibleCertifications] = useState(4);
+  const [activeTab, setActiveTab] = useState("skills");
 
-  const loadMore = () => {
-    setVisibleCertifications((prev: number) =>
-      Math.min(prev + 4, certifications.length)
-    );
-  };
+  const tabs = [
+    { id: "skills", label: "Skills", icon: Code },
+    { id: "experience", label: "Experience", icon: Briefcase },
+    { id: "education", label: "Education", icon: GraduationCap },
+    { id: "certifications", label: "Certifications", icon: Award },
+  ];
+
   return (
-    <div className="min-h-screen py-24 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
+    <div className="min-h-screen py-24 bg-gradient-to-b from-white to-gray-50 dark:from-slate-900 dark:to-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Hero Section */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
           className="text-center mb-20"
         >
-          <h1 className="text-5xl md:text-6xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 dark:from-indigo-400 dark:via-purple-400 dark:to-pink-400">
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="mb-8 flex justify-center"
+          >
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full blur-2xl opacity-20 animate-pulse"></div>
+              <Image
+                src="/logo.png"
+                alt="Bugra Gormus"
+                width={180}
+                height={180}
+                className="rounded-full relative z-10 border-4 border-white dark:border-slate-800 shadow-xl"
+              />
+            </div>
+          </motion.div>
+          <motion.h1
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 dark:from-indigo-400 dark:via-purple-400 dark:to-pink-400 tracking-tight font-sans py-2"
+          >
             About Me
-          </h1>
-          <div className="max-w-3xl mx-auto">
-            <p className="text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-              I&apos;m a software engineer passionate about machine learning,
-              data engineering, and mobile/backend systems. Currently pursuing
-              my MSc in Artificial Intelligence through the prestigious YLSY
-              scholarship program sponsored by the Turkish Government.
-            </p>
-            <p className="text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-              My academic journey includes a B.Sc. in Software Engineering from
-              Kirklareli University, where I completed my thesis on retinal
-              disease classification using deep learning techniques.
-            </p>
-            <p className="text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
-              I balance strong engineering skills with a focus on clean
-              architecture, practical delivery, and lifelong learning. My goal
-              is to build robust, scalable systems that solve real-world
-              problems through innovative technology solutions.
-            </p>
-          </div>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+            className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed"
+          >
+            A passionate software engineer and data enthusiast with expertise in
+            machine learning, web development, and data analysis. I love
+            creating innovative solutions and turning complex problems into
+            elegant, efficient code.
+          </motion.p>
         </motion.div>
 
-        {/* Skills Section */}
-        <motion.section
+        {/* Tabs Navigation */}
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="mb-24"
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.8 }}
+          className="flex flex-wrap justify-center gap-4 mb-12"
         >
-          <h2 className="text-4xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400">
-            Skills & Expertise
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {skills.map((skillGroup, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="group bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
-              >
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-gray-700 dark:to-gray-600 flex items-center justify-center mb-6 group-hover:from-indigo-100 group-hover:to-purple-100 dark:group-hover:from-gray-600 dark:group-hover:to-gray-500 transition-colors">
-                  <skillGroup.icon className="h-8 w-8 text-indigo-600 dark:text-indigo-400" />
-                </div>
-                <h3 className="text-2xl font-semibold mb-6 text-gray-800 dark:text-gray-200">
-                  {skillGroup.category}
-                </h3>
-                <div className="flex flex-wrap gap-3">
-                  {skillGroup.items.map((skill, skillIndex) => (
-                    <span
-                      key={skillIndex}
-                      className="px-4 py-1.5 text-sm bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-gray-700 dark:to-gray-600 text-indigo-700 dark:text-indigo-300 rounded-full font-medium"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.section>
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`flex items-center gap-2 px-6 py-3 rounded-full transition-all duration-300 ${
+                activeTab === tab.id
+                  ? "bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg"
+                  : "bg-white dark:bg-slate-800 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-slate-700"
+              }`}
+            >
+              <tab.icon className="h-5 w-5" />
+              <span>{tab.label}</span>
+            </button>
+          ))}
+        </motion.div>
 
-        {/* Certifications Section */}
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="mb-24"
-        >
-          <h2 className="text-4xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400">
-            Certifications
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {certifications
-              .slice(0, visibleCertifications)
-              .map((cert, index) => (
+        {/* Content Sections */}
+        <div className="space-y-12">
+          {/* Skills Section */}
+          {activeTab === "skills" && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            >
+              {skills.map((skill, index) => (
+                <motion.div
+                  key={skill.category}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="card p-6 rounded-2xl bg-white dark:bg-slate-800/50 hover:shadow-2xl transition-all duration-300"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="p-2 rounded-xl bg-gradient-to-br from-indigo-500/10 to-purple-500/10">
+                      <skill.icon className="h-6 w-6 text-indigo-600 dark:text-indigo-400" />
+                    </div>
+                    <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200">
+                      {skill.category}
+                    </h3>
+                  </div>
+                  <ul className="space-y-2">
+                    {skill.items.map((item) => (
+                      <li
+                        key={item}
+                        className="text-gray-600 dark:text-gray-400 flex items-center gap-2"
+                      >
+                        <span className="h-1.5 w-1.5 rounded-full bg-indigo-500/50"></span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              ))}
+            </motion.div>
+          )}
+
+          {/* Experience Section */}
+          {activeTab === "experience" && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="space-y-8"
+            >
+              {experiences.map((exp, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="group bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+                  className="card p-8 rounded-2xl bg-white dark:bg-slate-800/50 hover:shadow-2xl transition-all duration-300"
                 >
-                  <div className="flex items-start gap-6">
-                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-gray-700 dark:to-gray-600 flex items-center justify-center group-hover:from-indigo-100 group-hover:to-purple-100 dark:group-hover:from-gray-600 dark:group-hover:to-gray-500 transition-colors">
-                      <cert.icon className="h-8 w-8 text-indigo-600 dark:text-indigo-400" />
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 rounded-xl bg-gradient-to-br from-indigo-500/10 to-purple-500/10">
+                      <exp.icon className="h-6 w-6 text-indigo-600 dark:text-indigo-400" />
                     </div>
                     <div className="flex-1">
-                      <div className="flex justify-between items-start mb-4">
-                        <div>
-                          <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-2">
-                            {cert.title}
-                          </h3>
-                          <p className="text-gray-600 dark:text-gray-400 mb-2">
-                            {cert.issuer}
+                      <h3 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-2">
+                        {exp.title}
+                      </h3>
+                      <p className="text-indigo-600 dark:text-indigo-400 font-medium mb-2">
+                        {exp.company} • {exp.period}
+                      </p>
+                      <div className="prose dark:prose-invert max-w-none">
+                        {exp.description.split("\n").map((line, i) => (
+                          <p
+                            key={i}
+                            className="text-gray-600 dark:text-gray-400 mb-2"
+                          >
+                            {line}
                           </p>
-                          <span className="text-sm text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-700 px-4 py-2 rounded-full">
-                            {cert.year}
-                          </span>
-                        </div>
+                        ))}
                       </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          )}
+
+          {/* Education Section */}
+          {activeTab === "education" && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="space-y-8"
+            >
+              {education.map((edu, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="card p-8 rounded-2xl bg-white dark:bg-slate-800/50 hover:shadow-2xl transition-all duration-300"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 rounded-xl bg-gradient-to-br from-indigo-500/10 to-purple-500/10">
+                      <edu.icon className="h-6 w-6 text-indigo-600 dark:text-indigo-400" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-2">
+                        {edu.degree}
+                      </h3>
+                      <p className="text-indigo-600 dark:text-indigo-400 font-medium mb-2">
+                        {edu.school} • {edu.period}
+                      </p>
+                      <p className="text-gray-600 dark:text-gray-400 whitespace-pre-line">
+                        {edu.description}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          )}
+
+          {/* Certifications Section */}
+          {activeTab === "certifications" && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="grid grid-cols-1 md:grid-cols-2 gap-8"
+            >
+              {certifications.map((cert, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="card p-6 rounded-2xl bg-white dark:bg-slate-800/50 hover:shadow-2xl transition-all duration-300"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 rounded-xl bg-gradient-to-br from-indigo-500/10 to-purple-500/10">
+                      <cert.icon className="h-6 w-6 text-indigo-600 dark:text-indigo-400" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-2">
+                        {cert.title}
+                      </h3>
+                      <p className="text-indigo-600 dark:text-indigo-400 font-medium mb-2">
+                        {cert.issuer} • {cert.year}
+                      </p>
                       {cert.verificationUrl && (
                         <a
                           href={cert.verificationUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors text-sm"
+                          className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
                         >
-                          <Award className="h-4 w-4 mr-2" />
-                          Verify Certificate
+                          <Award className="h-4 w-4" />
+                          <span>Verify Certificate</span>
                         </a>
                       )}
                     </div>
                   </div>
                 </motion.div>
               ))}
-          </div>
-          {visibleCertifications < certifications.length && (
-            <div className="text-center mt-8">
-              <button
-                onClick={loadMore}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 dark:bg-indigo-400 text-white rounded-lg hover:bg-indigo-700 dark:hover:bg-indigo-300 transition-colors duration-300"
-              >
-                <ArrowRight className="h-5 w-5 rotate-90" />
-                Load More Certifications
-              </button>
-            </div>
+            </motion.div>
           )}
-        </motion.section>
-
-        {/* Education Section */}
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="mb-24"
-        >
-          <h2 className="text-4xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400">
-            Education
-          </h2>
-          <div className="space-y-8">
-            {education.map((edu, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="group bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
-              >
-                <div className="flex items-start gap-6">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-gray-700 dark:to-gray-600 flex items-center justify-center group-hover:from-indigo-100 group-hover:to-purple-100 dark:group-hover:from-gray-600 dark:group-hover:to-gray-500 transition-colors">
-                    <edu.icon className="h-8 w-8 text-indigo-600 dark:text-indigo-400" />
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex justify-between items-start mb-4">
-                      <div>
-                        <h3 className="text-2xl font-semibold text-gray-800 dark:text-gray-200">
-                          {edu.degree}
-                        </h3>
-                        <p className="text-gray-600 dark:text-gray-400 text-lg">
-                          {edu.school}
-                        </p>
-                      </div>
-                      <span className="text-sm text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-700 px-4 py-2 rounded-full">
-                        {edu.period}
-                      </span>
-                    </div>
-                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed whitespace-pre-line">
-                      {edu.description}
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.section>
-
-        {/* Experience Section */}
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="mb-24"
-        >
-          <h2 className="text-4xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400">
-            Work Experience
-          </h2>
-          <div className="space-y-8">
-            {experiences.map((experience, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="group bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
-              >
-                <div className="flex items-start gap-6">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-gray-700 dark:to-gray-600 flex items-center justify-center group-hover:from-indigo-100 group-hover:to-purple-100 dark:group-hover:from-gray-600 dark:group-hover:to-gray-500 transition-colors">
-                    <experience.icon className="h-8 w-8 text-indigo-600 dark:text-indigo-400" />
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex justify-between items-start mb-4">
-                      <div>
-                        <h3 className="text-2xl font-semibold text-gray-800 dark:text-gray-200">
-                          {experience.title}
-                        </h3>
-                        <p className="text-gray-600 dark:text-gray-400 text-lg">
-                          {experience.company}
-                        </p>
-                      </div>
-                      <span className="text-sm text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-700 px-4 py-2 rounded-full">
-                        {experience.period}
-                      </span>
-                    </div>
-                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed whitespace-pre-line">
-                      {experience.description}
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.section>
-
-        {/* Projects Section */}
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="mb-24"
-        >
-          <h2 className="text-4xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400">
-            Featured Projects
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {projects.map((project, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="group bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
-              >
-                <div className="flex items-start gap-6">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-gray-700 dark:to-gray-600 flex items-center justify-center group-hover:from-indigo-100 group-hover:to-purple-100 dark:group-hover:from-gray-600 dark:group-hover:to-gray-500 transition-colors">
-                    <project.icon className="h-8 w-8 text-indigo-600 dark:text-indigo-400" />
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex justify-between items-start mb-4">
-                      <div>
-                        <h3 className="text-2xl font-semibold text-gray-800 dark:text-gray-200">
-                          {project.title}
-                        </h3>
-                        <p className="text-gray-600 dark:text-gray-400 text-lg">
-                          {project.description}
-                        </p>
-                      </div>
-                    </div>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {project.tech.map((tech, techIndex) => (
-                        <span
-                          key={techIndex}
-                          className="px-3 py-1 text-sm bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-gray-700 dark:to-gray-600 text-indigo-700 dark:text-indigo-300 rounded-full font-medium"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
-                    >
-                      <Github className="h-5 w-5 mr-2" />
-                      View on GitHub
-                    </a>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.section>
-
-        {/* Fun Facts Section */}
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-4xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400">
-            Beyond Tech
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {funFacts.map((fact, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="group bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
-              >
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-gray-700 dark:to-gray-600 flex items-center justify-center mb-6 group-hover:from-indigo-100 group-hover:to-purple-100 dark:group-hover:from-gray-600 dark:group-hover:to-gray-500 transition-colors">
-                  <fact.icon className="h-8 w-8 text-indigo-600 dark:text-indigo-400" />
-                </div>
-                <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">
-                  {fact.title}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                  {fact.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.section>
+        </div>
       </div>
     </div>
   );

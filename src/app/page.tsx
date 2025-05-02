@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+      <section className="relative h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
         <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <motion.div
@@ -21,15 +21,18 @@ export default function Home() {
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="mb-8 flex justify-center"
+              className="mb-12 flex justify-center"
             >
-              <Image
-                src="/logo.png"
-                alt="Bugra Gormus Logo"
-                width={150}
-                height={150}
-                className="rounded-full"
-              />
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full blur-2xl opacity-20 animate-pulse"></div>
+                <Image
+                  src="/logo.png"
+                  alt="Bugra Gormus Logo"
+                  width={180}
+                  height={180}
+                  className="rounded-full relative z-10 border-4 border-white dark:border-slate-800 shadow-xl"
+                />
+              </div>
             </motion.div>
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
@@ -72,7 +75,7 @@ export default function Home() {
       </section>
 
       {/* Featured Skills Section */}
-      <section className="py-24 bg-white dark:bg-gray-800">
+      <section className="py-24 bg-white dark:bg-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -90,42 +93,42 @@ export default function Home() {
                 title: "Software Development",
                 description:
                   "Building scalable and efficient applications with modern technologies and best practices.",
-                gradient: "from-indigo-50 to-purple-50",
-                iconBg: "bg-indigo-100",
-                iconColor: "text-indigo-600",
-                hoverBg: "group-hover:bg-indigo-200",
+                gradient: "from-indigo-500/10 to-purple-500/10",
+                iconBg: "bg-indigo-500/10",
+                iconColor: "text-indigo-600 dark:text-indigo-400",
+                hoverBg: "group-hover:bg-indigo-500/20",
               },
               {
                 icon: Database,
                 title: "Data Analysis",
                 description:
                   "Transforming raw data into meaningful insights and visualizations that drive decision-making.",
-                gradient: "from-purple-50 to-pink-50",
-                iconBg: "bg-purple-100",
-                iconColor: "text-purple-600",
-                hoverBg: "group-hover:bg-purple-200",
+                gradient: "from-purple-500/10 to-pink-500/10",
+                iconBg: "bg-purple-500/10",
+                iconColor: "text-purple-600 dark:text-purple-400",
+                hoverBg: "group-hover:bg-purple-500/20",
               },
               {
                 icon: Lightbulb,
                 title: "Problem Solving",
                 description:
                   "Finding innovative solutions to complex technical challenges with creative thinking.",
-                gradient: "from-pink-50 to-indigo-50",
-                iconBg: "bg-pink-100",
-                iconColor: "text-pink-600",
-                hoverBg: "group-hover:bg-pink-200",
+                gradient: "from-pink-500/10 to-indigo-500/10",
+                iconBg: "bg-pink-500/10",
+                iconColor: "text-pink-600 dark:text-pink-400",
+                hoverBg: "group-hover:bg-pink-500/20",
               },
             ].map((skill, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
-                className={`group p-8 rounded-2xl bg-gradient-to-br ${skill.gradient} dark:from-gray-700 dark:to-gray-600 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2`}
+                className={`group card p-8 rounded-2xl bg-gradient-to-br ${skill.gradient} dark:from-slate-800 dark:to-slate-700 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1`}
               >
                 <div
-                  className={`w-16 h-16 rounded-full ${skill.iconBg} dark:bg-opacity-20 flex items-center justify-center mb-6 ${skill.hoverBg} dark:group-hover:bg-opacity-30 transition-colors`}
+                  className={`w-16 h-16 rounded-2xl ${skill.iconBg} dark:bg-opacity-20 flex items-center justify-center mb-6 ${skill.hoverBg} dark:group-hover:bg-opacity-30 transition-colors`}
                 >
                   <skill.icon
                     className={`h-8 w-8 ${skill.iconColor} dark:text-opacity-80`}

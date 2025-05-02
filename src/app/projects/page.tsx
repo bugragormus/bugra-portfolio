@@ -3,6 +3,7 @@
 // app/projects/page.tsx
 
 import Link from "next/link";
+import Image from "next/image";
 import {
   Github,
   ExternalLink,
@@ -120,25 +121,25 @@ const projectCategories = [
 
 export default function Projects() {
   return (
-    <div className="min-h-screen py-24 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
+    <div className="min-h-screen py-24 bg-gradient-to-b from-white to-gray-50 dark:from-slate-900 dark:to-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
           className="text-center mb-20"
         >
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 dark:from-indigo-400 dark:via-purple-400 dark:to-pink-400 tracking-tight font-sans py-2"
           >
             My <span className="inline-block">Projects</span>
           </motion.h1>
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
             className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto"
           >
@@ -150,20 +151,22 @@ export default function Projects() {
         {projectCategories.map((category, categoryIndex) => (
           <motion.div
             key={category.id}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: categoryIndex * 0.2 }}
             className="mb-20"
           >
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: categoryIndex * 0.2 + 0.2 }}
               className="flex items-center gap-3 mb-8"
             >
-              <category.icon className="h-8 w-8 text-indigo-600 dark:text-indigo-400" />
+              <div className="p-2 rounded-xl bg-gradient-to-br from-indigo-500/10 to-purple-500/10 dark:from-indigo-500/20 dark:to-purple-500/20">
+                <category.icon className="h-8 w-8 text-indigo-600 dark:text-indigo-400" />
+              </div>
               <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-200">
                 {category.title}
               </h2>
@@ -173,64 +176,67 @@ export default function Projects() {
               {category.projects.map((project, projectIndex) => (
                 <motion.div
                   key={projectIndex}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{
                     duration: 0.5,
                     delay: (categoryIndex * 2 + projectIndex) * 0.1,
                   }}
-                  className="group relative bg-gray-900/50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-800/50 hover:border-gray-700/50"
+                  className="group card relative rounded-2xl overflow-hidden bg-white dark:bg-slate-800/50 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
                 >
-                  <div className="aspect-w-16 aspect-h-9 relative overflow-hidden"></div>
-                  <div className="p-8 bg-gradient-to-b from-gray-900/50 to-gray-800/30 backdrop-blur-sm">
-                    <h3 className="text-2xl font-semibold mb-4 text-white/90 group-hover:text-white">
+                  <div className="relative aspect-w-16 aspect-h-9 overflow-hidden">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </div>
+                  <div className="p-8">
+                    <h3 className="text-2xl font-semibold mb-4 text-gray-800 dark:text-gray-200 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
                       {project.title}
                     </h3>
-                    <p className="text-gray-300 mb-6 leading-relaxed">
+                    <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
                       {project.description}
                     </p>
                     <div className="flex flex-wrap gap-2 mb-6">
                       {project.tags.map((tag, tagIndex) => (
                         <motion.span
-                          className="bg-gradient-to-r from-indigo-500/20 via-purple-500/20 to-pink-500/20 text-white/80 px-3 py-1 rounded-full text-sm font-medium transition-colors hover:from-indigo-500 hover:via-purple-500 hover:to-pink-500 hover:text-white/95"
                           key={tagIndex}
                           initial={{ opacity: 0, scale: 0.8 }}
                           whileInView={{ opacity: 1, scale: 1 }}
                           viewport={{ once: true }}
-                          transition={{
-                            duration: 0.3,
-                            delay:
-                              (categoryIndex * 2 + projectIndex) * 0.1 +
-                              tagIndex * 0.1,
-                          }}
+                          transition={{ duration: 0.3, delay: tagIndex * 0.1 }}
+                          className="px-3 py-1 rounded-full text-sm font-medium bg-gradient-to-r from-indigo-500/10 to-purple-500/10 text-indigo-600 dark:text-indigo-400 dark:from-indigo-500/20 dark:to-purple-500/20"
                         >
                           {tag}
                         </motion.span>
                       ))}
                     </div>
                     <div className="flex gap-4">
-                      {project.github && project.github !== null && (
-                        <a
+                      {project.github && (
+                        <Link
                           href={project.github}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 px-4 py-2 bg-gray-800/50 hover:bg-gray-700/50 rounded-lg transition-colors duration-300 group/link"
+                          className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
                         >
-                          <Github className="h-5 w-5 mr-2 group-hover/link:scale-110 transition-transform" />
-                          View Code
-                        </a>
+                          <Github className="h-5 w-5" />
+                          <span>Code</span>
+                        </Link>
                       )}
-                      {project.live && project.live !== null && (
-                        <a
+                      {project.live && (
+                        <Link
                           href={project.live}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 px-4 py-2 bg-gray-800/50 hover:bg-gray-700/50 rounded-lg transition-colors duration-300 group/link"
+                          className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
                         >
-                          <ExternalLink className="h-5 w-5 mr-2 group-hover/link:scale-110 transition-transform" />
-                          Live Demo
-                        </a>
+                          <ExternalLink className="h-5 w-5" />
+                          <span>Live Demo</span>
+                        </Link>
                       )}
                     </div>
                   </div>
@@ -241,9 +247,8 @@ export default function Projects() {
         ))}
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
           className="mt-16 text-center"
         >
