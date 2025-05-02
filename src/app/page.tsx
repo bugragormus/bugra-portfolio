@@ -40,7 +40,7 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.4 }}
               className="text-6xl md:text-8xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 dark:from-indigo-400 dark:via-purple-400 dark:to-pink-400 mb-6 tracking-tight font-sans py-2"
             >
-              Hello, I&apos;m <span className="inline-block">Bugra</span>
+              Hello, I&apos;m <span className="inline-block">Buğra</span>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}

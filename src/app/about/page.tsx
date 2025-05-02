@@ -9,11 +9,10 @@ import {
   GraduationCap,
   Heart,
   Globe,
-  Github,
   Brain,
   LineChart,
   Bot,
-  ArrowRight,
+  Github,
 } from "lucide-react";
 import { useState } from "react";
 import { motion } from "framer-motion";
@@ -22,137 +21,130 @@ import Image from "next/image";
 const skills = [
   {
     category: "Programming Languages",
-    items: [
-      "Python (ML & Backend)",
-      "C# (.NET Core)",
-      "Java",
-      "TypeScript",
-      "JavaScript",
-      "Dart",
-    ],
+    items: ["Python (ML & Backend)", "C# (.NET Core)", "JavaScript", "Dart"],
     icon: Code,
   },
   {
     category: "Frontend",
-    items: ["React", "Next.js", "Flutter", "Tailwind", "HTML/CSS"],
+    items: ["Next.js", "Flutter", "Tailwind", "HTML/CSS"],
     icon: Cpu,
   },
   {
     category: "Backend",
-    items: ["Django", ".NET", "Node.js", "FastAPI", "Spring Boot"],
+    items: [".NET", "FastAPI", "RestAPI", "Node.js"],
     icon: Database,
   },
   {
     category: "Databases",
-    items: ["PostgreSQL", "Supabase", "MongoDB", "Redis", "Firebase"],
+    items: ["PostgreSQL", "Supabase", "MongoDB", "Firebase"],
     icon: Database,
   },
   {
     category: "Tools & DevOps",
-    items: ["Git", "Docker", "CI/CD", "AWS", "Jira", "Agile"],
+    items: ["Git", "Docker", "CI/CD", "AWS", "Jira", "Agile", "Scrum"],
     icon: Cpu,
   },
 ];
 
 const certifications = [
   {
-    title: "Google Project Management Professional Certificate",
-    issuer: "Coursera",
-    year: "2023",
+    title: "Project Management Fundamentals",
+    issuer: "Google Career Certificates",
+    year: "Jan 2023",
     icon: Award,
     verificationUrl:
-      "https://www.coursera.org/account/accomplishments/certificate/MGHJMLEB5VD8",
+      "https://www.coursera.org/account/accomplishments/records/MGHJMLEB5VD8",
   },
   {
-    title: "Flutter Mobile Development Bootcamp",
-    issuer: "Google Turkey Game and App Academy",
-    year: "2023",
-    icon: Award,
-    verificationUrl: "https://verified.sertifier.com/en/verify/97300444341715/",
-  },
-  {
-    title: "Foundations of Project Management",
+    title: "Starting the Project: Stepping Into the Project Successfully",
     issuer: "Google Career Certificates",
-    year: "2023",
-    icon: Award,
-    verificationUrl:
-      "https://www.coursera.org/account/accomplishments/certificate/QY7TG9JD572K",
-  },
-  {
-    title: "Agile Project Management",
-    issuer: "Google Career Certificates",
-    year: "2023",
-    icon: Award,
-    verificationUrl: "https://verified.sertifier.com/en/verify/48677610732600",
-  },
-  {
-    title: "AI Agents Fundamentals",
-    issuer: "Hugging Face",
-    year: "2023",
+    year: "Mar 2023",
     icon: Award,
     verificationUrl:
       "https://www.coursera.org/account/accomplishments/certificate/AJVAM2KPKQQV",
   },
   {
-    title: "Data Science Professional Certificate",
-    issuer: "Coursera",
-    year: "2023",
+    title: "Google Game and App Academy App Jam Participation Certificate",
+    issuer: "Google Game & App Academy",
+    year: "Apr 2023",
     icon: Award,
-    verificationUrl:
-      "https://www.coursera.org/account/accomplishments/certificate/9ELSSX6G6F58",
+    verificationUrl: "https://verified.sertifier.com/en/verify/48677610732600/",
   },
   {
-    title: "Google Project Management Certificate",
-    issuer: "Coursera",
-    year: "2023",
+    title: "Project Planning: Put It All Together",
+    issuer: "Google Career Certificates",
+    year: "May 2023",
+    icon: Award,
+    verificationUrl:
+      "https://www.coursera.org/account/accomplishments/certificate/QY7TG9JD572K",
+  },
+  {
+    title: "Project Execution: Running the Project",
+    issuer: "Google Career Certificates",
+    year: "May 2023",
+    icon: Award,
+    verificationUrl:
+      "https://www.coursera.org/account/accomplishments/certificate/MGHJMLEB5VD8",
+  },
+  {
+    title: "Google Game and App Academy: App Development with Flutter",
+    issuer: "Google Game & App Academy",
+    year: "May 2023",
+    icon: Award,
+    verificationUrl: "https://verified.sertifier.com/en/verify/97300444341715/",
+  },
+  {
+    title: "Agile Project Management",
+    issuer: "Google Career Certificates",
+    year: "July 2023",
     icon: Award,
     verificationUrl:
       "https://www.coursera.org/account/accomplishments/certificate/HW98B28VYV4J",
   },
   {
-    title: "Flutter Mobile Bootcamp",
-    issuer: "Google Turkey",
-    year: "2023",
+    title: "Graduation Project: Applying Project Management in the Real World",
+    issuer: "Google Career Certificates",
+    year: "July 2023",
     icon: Award,
-    verificationUrl: "https://verified.sertifier.com/en/verify/33177557619774/",
+    verificationUrl:
+      "https://www.coursera.org/account/accomplishments/certificate/SHBKU662JA3B",
   },
   {
-    title: "Project Management Foundations",
+    title: "Google Project Management Certification",
     issuer: "Google Career Certificates",
-    year: "2023",
+    year: "July 2023",
     icon: Award,
     verificationUrl:
       "https://www.credly.com/badges/4b36030b-4bf1-4bc7-9065-34d12852fac5/linked_in_profile",
   },
   {
-    title: "Agile Project Management",
-    issuer: "Google Career Certificates",
-    year: "2023",
+    title: "Google Game and App Academy: Technology Entrepreneurship",
+    issuer: "Google Game & App Academy",
+    year: "Aug 2023",
     icon: Award,
     verificationUrl: "https://verified.sertifier.com/en/verify/80327406821814/",
   },
   {
+    title: "Google Game and App Academy: Application Development with Flutter",
+    issuer: "Google Game & App Academy",
+    year: "Aug 2023",
+    icon: Award,
+    verificationUrl: "https://verified.sertifier.com/en/verify/33177557619774/",
+  },
+  {
     title: "AI Agents Fundamentals",
     issuer: "Hugging Face",
-    year: "2023",
+    year: "Mar 2025",
     icon: Award,
-    verificationUrl: "https://verified.sertifier.com/en/verify/47160946073728/",
+    verificationUrl:
+      "https://cdn-lfs-us-1.hf.co/repos/f2/34/f2344151f60f6027c436821dc61cf3f27a46435de57df8df50ad02b5acca7c07/94dce033c12e74cc8e613c353d35abf0e1f1503bdd6c92852b1f5fc74487d592?response-content-disposition=inline%3B+filename*%3DUTF-8%27%272025-03-04.png%3B+filename%3D%222025-03-04.png%22%3B&response-content-type=image%2Fpng&Expires=1746178476&Policy=eyJTdGF0ZW1lbnQiOlt7IkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc0NjE3ODQ3Nn19LCJSZXNvdXJjZSI6Imh0dHBzOi8vY2RuLWxmcy11cy0xLmhmLmNvL3JlcG9zL2YyLzM0L2YyMzQ0MTUxZjYwZjYwMjdjNDM2ODIxZGM2MWNmM2YyN2E0NjQzNWRlNTdkZjhkZjUwYWQwMmI1YWNjYTdjMDcvOTRkY2UwMzNjMTJlNzRjYzhlNjEzYzM1M2QzNWFiZjBlMWYxNTAzYmRkNmM5Mjg1MmIxZjVmYzc0NDg3ZDU5Mj9yZXNwb25zZS1jb250ZW50LWRpc3Bvc2l0aW9uPSomcmVzcG9uc2UtY29udGVudC10eXBlPSoifV19&Signature=H79%7E9x8moY2VOHitAbTj7z2GLMp8xTsna3bKReKIggHFhlPvm28PRH3Kj8JBSSEcMRW7BVZx2HbyJIBWvP6eRb5E4TY-xzp8DSIEbfFKPi8zgOpJy2pVp4%7EhmRAX3uLjSTcZ3u4U%7E44rvZxuKgBDZx1EaWAy8F15Nq5cRtwG0r96OJz2V-jUDrQdXx-bCy-4s6Qbgt6n%7ERRffATat%7EM8r0iFvhnhxu8zBOYncoskusvevHnfKD68vlKUxB6amCwrPuVQJdDOriLaEJGEpU9pLch1TW0h9yto6ypaeB6R5foFKVmCkykrXLZRqcVNQUQjq1nM1cJFs1E%7EbP7T7m8mqw__&Key-Pair-Id=K24J24Z295AEI9",
   },
   {
     title: "HarvardX Data Science Certificate",
     issuer: "Harvard University",
     year: "2023",
     icon: Award,
-    verificationUrl:
-      "https://www.coursera.org/account/accomplishments/certificate/SHBKU662JA3B",
-  },
-  {
-    title: "Data Science Professional Certificate",
-    issuer: "Coursera",
-    year: "2023",
-    icon: Award,
-    verificationUrl:
-      "https://www.coursera.org/account/accomplishments/certificate/9ELSSX6G6F58",
+    verificationUrl: null,
   },
 ];
 
@@ -160,17 +152,24 @@ const education = [
   {
     degree: "MSc in Artificial Intelligence",
     school: "YLSY Government Scholarship Program",
-    period: "2024 - Present",
+    period: "2025",
     description:
-      "Prestigious Turkish Government Scholarship for AI Studies Abroad",
+      "Sponsored by the Republic of Turkey as the sole selected candidate for graduate studies abroad.",
     icon: GraduationCap,
   },
   {
     degree: "B.Sc. in Software Engineering",
     school: "Kirklareli University",
-    period: "2019 - 2023",
+    period: "Sep 2020 - July 2024",
     description:
-      "GPA: 3.34/4.0\nThesis: Deep Retina — ML for retinal image classification",
+      "• GPA: 3.34/4.0\n• Bachelor Thesis (Deep Retina): Developed machine learning models for eye disease detection from medical images.\n• Preprocessed retinal images and trained classification models.\n• Evaluated model performance and optimized for higher accuracy",
+    icon: GraduationCap,
+  },
+  {
+    degree: "Science High School Diploma",
+    school: "Çan Science High School",
+    period: "Sep 2014 - June 2018",
+    description: "Diploma Grade: 86.10/100",
     icon: GraduationCap,
   },
 ];
@@ -179,25 +178,25 @@ const experiences = [
   {
     title: "Data Engineer",
     company: "Kale Group",
-    period: "2023 - Present",
+    period: "Feb 2025 - Present",
     description:
-      "• Developed and deployed ML models for time-series forecasting and anomaly detection\n• Built ETL pipelines from databases and APIs for data processing\n• Designed and implemented data visualization tools for business insights\n• Created automated data quality checks and monitoring systems",
+      "• Developed and deployed ML models for time-series forecasting and anomaly detection\n• Built ETL pipelines from relational databases and external APIs for data processing\n• Designed and implemented data visualization tools to support strategic business insights\n• Created automated data preprocessing, quality checks, and monitoring systems\n• Collaborated with cross-functional R&D and business teams to deploy data-driven solutions",
     icon: Briefcase,
   },
   {
     title: "Software Engineering Intern",
-    company: "Vakıfbank",
-    period: "2023",
+    company: "Türkiye Vakıflar Bankası T.A.O.",
+    period: "July 2023 - Sep 2023‌",
     description:
-      "• Built 'FabrieBank' banking system using C# (.NET) and PostgreSQL\n• Implemented layered architecture with optimized SQL queries\n• Developed secure authentication and authorization systems\n• Created automated testing suites for critical banking operations",
+      "• Collaborated with the software development team to design and develop banking applications.\n• Built FabrieBank, a banking system developed with C# (.NET) and PostgreSQL, following layered architecture design principles\n• Applied banking business logic and transaction workflows in application development.\n• Wrote clean, efficient, and maintainable code for various banking software modules.\n• Developed and optimized SQL queries for PostgreSQL databases, enhancing application performance and data integrity",
     icon: Briefcase,
   },
   {
-    title: "Mobile App Developer",
+    title: "Mobile App Developer Intern",
     company: "Google Turkey Game & App Academy",
-    period: "2022",
+    period: "Nov 2022 - June 2023",
     description:
-      "• Built production-grade Flutter apps with Firebase integration\n• Developed REST APIs and implemented best practices\n• Participated in bootcamps and ideathons\n• Earned 6 Agile/Project Management certificates",
+      "• Completed intensive Flutter and Dart training, specializing in mobile UI/UX and API integration\n• Earned 6 certificates through Google's Project Management program, focusing on agile methodologies and risk management\n• Built mobile apps integrating RESTful APIs and Firebase services, delivering production-ready solutions\n• Participated in Ideathon, Game Jam, and Bootcamp events, developing rapid prototypes with cross-functional teams",
     icon: Briefcase,
   },
 ];
@@ -261,6 +260,8 @@ export default function About() {
     { id: "experience", label: "Experience", icon: Briefcase },
     { id: "education", label: "Education", icon: GraduationCap },
     { id: "certifications", label: "Certifications", icon: Award },
+    { id: "projects", label: "Projects", icon: Code },
+    { id: "fun-facts", label: "Fun Facts", icon: Heart },
   ];
 
   return (
@@ -497,6 +498,89 @@ export default function About() {
                       )}
                     </div>
                   </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          )}
+
+          {/* Projects Section */}
+          {activeTab === "projects" && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="grid grid-cols-1 md:grid-cols-2 gap-8"
+            >
+              {projects.map((project, index) => (
+                <motion.div
+                  key={project.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="card p-6 rounded-2xl bg-white dark:bg-slate-800/50 hover:shadow-2xl transition-all duration-300"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="p-2 rounded-xl bg-gradient-to-br from-indigo-500/10 to-purple-500/10">
+                      <project.icon className="h-6 w-6 text-indigo-600 dark:text-indigo-400" />
+                    </div>
+                    <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200">
+                      {project.title}
+                    </h3>
+                  </div>
+                  <p className="text-gray-600 dark:text-gray-400 mb-4">
+                    {project.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.tech.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-3 py-1 text-sm rounded-full bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300"
+                  >
+                    <Github className="h-5 w-5" />
+                    View on GitHub
+                  </a>
+                </motion.div>
+              ))}
+            </motion.div>
+          )}
+
+          {/* Fun Facts Section */}
+          {activeTab === "fun-facts" && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            >
+              {funFacts.map((fact, index) => (
+                <motion.div
+                  key={fact.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="card p-6 rounded-2xl bg-white dark:bg-slate-800/50 hover:shadow-2xl transition-all duration-300"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="p-2 rounded-xl bg-gradient-to-br from-indigo-500/10 to-purple-500/10">
+                      <fact.icon className="h-6 w-6 text-indigo-600 dark:text-indigo-400" />
+                    </div>
+                    <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200">
+                      {fact.title}
+                    </h3>
+                  </div>
+                  <p className="text-gray-600 dark:text-gray-400">
+                    {fact.description}
+                  </p>
                 </motion.div>
               ))}
             </motion.div>

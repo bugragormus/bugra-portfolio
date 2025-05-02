@@ -199,8 +199,8 @@ export default function Contact() {
                   {
                     icon: Mail,
                     label: "Email",
-                    value: "bugragormus@gmail.com",
-                    href: "mailto:bugragormus@gmail.com",
+                    value: "bugra.gormus@hotmail.com",
+                    href: "mailto:bugra.gormus@hotmail.com",
                   },
                   {
                     icon: Github,
@@ -211,13 +211,13 @@ export default function Contact() {
                   {
                     icon: Linkedin,
                     label: "LinkedIn",
-                    value: "Bugra Gormus",
+                    value: "Buğra Görmüş",
                     href: "https://linkedin.com/in/bugragormus",
                   },
                   {
                     icon: MapPin,
                     label: "Location",
-                    value: "Istanbul, Turkey",
+                    value: "Çanakkale, Turkey",
                     href: null,
                   },
                 ].map((item, index) => (

@@ -25,8 +25,8 @@ const projectCategories = [
         title: "Retinal Imaging ML",
         description:
           "A machine learning pipeline to analyze retinal images and detect diseases using image processing and classification.",
-        image: "/project4.jpg",
-        tags: ["Python", "TensorFlow", "OpenCV", "Medical Imaging"],
+        image: null,
+        tags: ["Python", "TensorFlow", "Numpy", "Medical Imaging"],
         github: "https://github.com/bugragormus/RetinalImagingML",
         live: null,
       },
@@ -34,7 +34,7 @@ const projectCategories = [
         title: "Feature Extraction ResNet-SVM",
         description:
           "This project extracts deep features from images using ResNet variants and classifies them using Support Vector Machines.",
-        image: "/project2.jpg",
+        image: null,
         tags: ["Python", "TensorFlow", "Scikit-learn", "Jupyter"],
         github: "https://github.com/bugragormus/Feature-Extraction-ResNet-SVM",
         live: null,
@@ -49,9 +49,9 @@ const projectCategories = [
       {
         title: "Finance Report",
         description:
-          "A Streamlit-based app that allows users to analyze, visualize, and report financial data with dynamic grouping and filtering.",
-        image: "/project1.jpg",
-        tags: ["Python", "Streamlit", "Pandas", "Matplotlib"],
+          "A Streamlit-based app that allows users to analyze, visualize, and report financial data with dynamic grouping and filtering to make data-driven decisions.",
+        image: null,
+        tags: ["Python", "Streamlit", "Pandas", "Matplotlib", "Accounting"],
         github: "https://github.com/bugragormus/Finance-Report",
         live: null,
       },
@@ -59,7 +59,7 @@ const projectCategories = [
         title: "Data Analysis & ML Template",
         description:
           "A ready-to-use template for building end-to-end machine learning and data analysis applications with multi-format support.",
-        image: "/project2.jpg",
+        image: null,
         tags: ["Python", "Scikit-learn", "Streamlit", "Pandas"],
         github:
           "https://github.com/bugragormus/Data-Analysis-and-Machine-Learning-Template",
@@ -75,9 +75,9 @@ const projectCategories = [
       {
         title: "Everything Tool",
         description:
-          "A multi-purpose Streamlit-based application combining various utilities into a single interface with modular architecture.",
-        image: "/project5.jpg",
-        tags: ["Python", "Streamlit", "Web Development"],
+          "A multi-purpose application combining various utilities into a single interface with modular architecture.",
+        image: null,
+        tags: ["Python", "VueJS", "Web Development", "Toolkit"],
         github: "https://github.com/bugragormus/EverythingTool",
         live: "https://everythingtool.github.io/everythingtool/",
       },
@@ -85,8 +85,14 @@ const projectCategories = [
         title: "Stock Tracking",
         description:
           "A Python-based Telegram bot that allows users to track the stock status of specific products in real time with instant notifications.",
-        image: "/project3.jpg",
-        tags: ["Python", "Selenium", "Telegram Bot API"],
+        image: null,
+        tags: [
+          "Python",
+          "Selenium",
+          "Telegram Bot API",
+          "Web Scraping",
+          "Zara",
+        ],
         github: "https://github.com/bugragormus/StockTracking",
         live: null,
       },
@@ -100,18 +106,18 @@ const projectCategories = [
       {
         title: "Troysarl",
         description:
-          "A modern and responsive corporate website built using Next.js and Tailwind CSS with optimized SEO structure.",
-        image: "/project6.jpg",
-        tags: ["Next.js", "TypeScript", "Tailwind CSS"],
+          "A modern and responsive corporate website for a car gallery built using Next.js and Tailwind CSS with optimized SEO structure.",
+        image: null,
+        tags: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase"],
         github: "https://github.com/bugragormus/troysarl",
         live: "https://troysarl.com",
       },
       {
         title: "FabrieBank",
         description:
-          "A simple web banking simulation platform where users can manage balances and transactions with user account management.",
-        image: "/project5.jpg",
-        tags: ["Python", "Django", "SQLite"],
+          "A simple web banking simulation platform where users can perform all kinds of banking operations like deposits, withdrawals, and transfers.",
+        image: null,
+        tags: [".NET", "C#", "ASP.NET", "PostgreSQL", "Banking", "Web App"],
         github: "https://github.com/bugragormus/FabrieBank",
         live: null,
       },
@@ -186,12 +192,14 @@ export default function Projects() {
                   className="group card relative rounded-2xl overflow-hidden bg-white dark:bg-slate-800/50 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
                 >
                   <div className="relative aspect-w-16 aspect-h-9 overflow-hidden">
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
+                    {project.image && (
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                    )}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
                   <div className="p-8">
