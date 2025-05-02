@@ -9,10 +9,6 @@ import {
   GraduationCap,
   Heart,
   Globe,
-  Brain,
-  LineChart,
-  Bot,
-  Github,
 } from "lucide-react";
 import { useState } from "react";
 import { motion } from "framer-motion";
@@ -198,37 +194,6 @@ const experiences = [
     description:
       "• Completed intensive Flutter and Dart training, specializing in mobile UI/UX and API integration\n• Earned 6 certificates through Google's Project Management program, focusing on agile methodologies and risk management\n• Built mobile apps integrating RESTful APIs and Firebase services, delivering production-ready solutions\n• Participated in Ideathon, Game Jam, and Bootcamp events, developing rapid prototypes with cross-functional teams",
     icon: Briefcase,
-  },
-];
-
-const projects = [
-  {
-    title: "Deep Retina",
-    description: "ML system for retinal image classification",
-    tech: ["Python", "TensorFlow", "OpenCV", "Medical Imaging"],
-    github: "https://github.com/bugragormus/RetinalImagingML",
-    icon: Brain,
-  },
-  {
-    title: "Finance Report",
-    description: "Streamlit dashboard for financial data analysis",
-    tech: ["Python", "Streamlit", "Pandas", "Plotly"],
-    github: "https://github.com/bugragormus/FinanceReport",
-    icon: LineChart,
-  },
-  {
-    title: "FabrieBank",
-    description: "Banking system with C#/.NET",
-    tech: ["C#", ".NET", "PostgreSQL", "Entity Framework"],
-    github: "https://github.com/bugragormus/FabrieBank",
-    icon: Briefcase,
-  },
-  {
-    title: "StockTracking Bot",
-    description: "Telegram bot with Selenium automation",
-    tech: ["Python", "Telegram API", "Selenium", "Pandas"],
-    github: "https://github.com/bugragormus/StockTrackingBot",
-    icon: Bot,
   },
 ];
 
@@ -498,57 +463,6 @@ export default function About() {
                       )}
                     </div>
                   </div>
-                </motion.div>
-              ))}
-            </motion.div>
-          )}
-
-          {/* Projects Section */}
-          {activeTab === "projects" && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
-              className="grid grid-cols-1 md:grid-cols-2 gap-8"
-            >
-              {projects.map((project, index) => (
-                <motion.div
-                  key={project.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="card p-6 rounded-2xl bg-white dark:bg-slate-800/50 hover:shadow-2xl transition-all duration-300"
-                >
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="p-2 rounded-xl bg-gradient-to-br from-indigo-500/10 to-purple-500/10">
-                      <project.icon className="h-6 w-6 text-indigo-600 dark:text-indigo-400" />
-                    </div>
-                    <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200">
-                      {project.title}
-                    </h3>
-                  </div>
-                  <p className="text-gray-600 dark:text-gray-400 mb-4">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tech.map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-3 py-1 text-sm rounded-full bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300"
-                  >
-                    <Github className="h-5 w-5" />
-                    View on GitHub
-                  </a>
                 </motion.div>
               ))}
             </motion.div>
