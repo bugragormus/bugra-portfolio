@@ -225,7 +225,6 @@ export default function About() {
     { id: "experience", label: "Experience", icon: Briefcase },
     { id: "education", label: "Education", icon: GraduationCap },
     { id: "certifications", label: "Certifications", icon: Award },
-    { id: "projects", label: "Projects", icon: Code },
     { id: "fun-facts", label: "Fun Facts", icon: Heart },
   ];
 
