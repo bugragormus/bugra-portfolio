@@ -212,7 +212,7 @@ const funFacts = [
   {
     title: "Location",
     description:
-      "Based in Çanakkale, Turkey — loves nature and creativity in tech",
+      "Based in Lugano, Switzerland — loves nature and creativity in tech",
     icon: Globe,
   },
 ];

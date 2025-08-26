@@ -217,7 +217,7 @@ export default function Contact() {
                   {
                     icon: MapPin,
                     label: "Location",
-                    value: "Çanakkale, Turkey",
+                    value: "Lugano, Switzerland",
                     href: null,
                   },
                 ].map((item, index) => (
