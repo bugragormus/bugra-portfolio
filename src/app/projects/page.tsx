@@ -39,6 +39,22 @@ const projectCategories = [
         github: "https://github.com/bugragormus/Feature-Extraction-ResNet-SVM",
         live: null,
       },
+      {
+        title: "Data Analysis and Machine Learning Template",
+        description:
+          "A ready-to-use template for building end-to-end machine learning and data analysis applications with multi-format support.",
+        image: null,
+        tags: [
+          "Python",
+          "Streamlit",
+          "Pandas",
+          "Matplotlib",
+          "Machine Learning",
+        ],
+        github:
+          "https://github.com/bugragormus/Data-Analysis-and-Machine-Learning-Template",
+        live: null,
+      },
     ],
   },
   {
@@ -73,6 +89,15 @@ const projectCategories = [
     icon: Wrench,
     projects: [
       {
+        title: "KaleFrit Barcode Tracker",
+        description:
+          "Kalefrit is a comprehensive management system developed for businesses. This system digitizes business operations to increase efficiency and minimize error risk. v2.0 adds advanced statistical analysis features.",
+        image: null,
+        tags: ["PHP", "Blade", "XAMPP", "PHPMyAdmin"],
+        github: "https://github.com/bugragormus/KaleFritBarcodeTracing",
+        live: null,
+      },
+      {
         title: "Everything Tool",
         description:
           "A multi-purpose application combining various utilities into a single interface with modular architecture.",
@@ -82,7 +107,7 @@ const projectCategories = [
         live: "https://everythingtool.github.io/everythingtool/",
       },
       {
-        title: "Stock Tracking",
+        title: "Stock Tracking Telegram Bot",
         description:
           "A Python-based Telegram bot that allows users to track the stock status of specific products in real time with instant notifications.",
         image: null,
