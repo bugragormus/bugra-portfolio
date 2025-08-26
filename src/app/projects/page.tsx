@@ -39,22 +39,6 @@ const projectCategories = [
         github: "https://github.com/bugragormus/Feature-Extraction-ResNet-SVM",
         live: null,
       },
-      {
-        title: "Data Analysis and Machine Learning Template",
-        description:
-          "A ready-to-use template for building end-to-end machine learning and data analysis applications with multi-format support.",
-        image: null,
-        tags: [
-          "Python",
-          "Streamlit",
-          "Pandas",
-          "Matplotlib",
-          "Machine Learning",
-        ],
-        github:
-          "https://github.com/bugragormus/Data-Analysis-and-Machine-Learning-Template",
-        live: null,
-      },
     ],
   },
   {
@@ -72,11 +56,17 @@ const projectCategories = [
         live: null,
       },
       {
-        title: "Data Analysis & ML Template",
+        title: "Data Analysis and Machine Learning Template",
         description:
           "A ready-to-use template for building end-to-end machine learning and data analysis applications with multi-format support.",
         image: null,
-        tags: ["Python", "Scikit-learn", "Streamlit", "Pandas"],
+        tags: [
+          "Python",
+          "Streamlit",
+          "Pandas",
+          "Matplotlib",
+          "Machine Learning",
+        ],
         github:
           "https://github.com/bugragormus/Data-Analysis-and-Machine-Learning-Template",
         live: null,
