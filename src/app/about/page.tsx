@@ -17,12 +17,12 @@ import Image from "next/image";
 const skills = [
   {
     category: "Programming Languages",
-    items: ["Python (ML & Backend)", "C# (.NET Core)", "JavaScript", "Dart"],
+    items: ["Python (ML & Backend)", "R", "C# (.NET Core)", "JavaScript"],
     icon: Code,
   },
   {
     category: "Frontend",
-    items: ["Next.js", "Flutter", "Tailwind", "HTML/CSS"],
+    items: ["Next.js", "Tailwind", "HTML/CSS"],
     icon: Cpu,
   },
   {
@@ -37,7 +37,7 @@ const skills = [
   },
   {
     category: "Tools & DevOps",
-    items: ["Git", "Docker", "CI/CD", "AWS", "Jira", "Agile", "Scrum"],
+    items: ["Git", "Docker", "CI/CD", "Agile", "Scrum"],
     icon: Cpu,
   },
 ];
@@ -147,8 +147,16 @@ const certifications = [
 const education = [
   {
     degree: "MSc in Artificial Intelligence",
+    school: "USI: Università della Svizzera italiana",
+    period: "2025 - Present",
+    description:
+      "• Currently pursuing a Master's degree in Artificial Intelligence at the Università della Svizzera italiana (USI), Switzerland.\n• Specializing in machine learning, natural language processing, and computer vision.\n• Focusing on developing advanced AI models and applications for real-world problems.",
+    icon: GraduationCap,
+  },
+  {
+    degree: "MSc in Artificial Intelligence",
     school: "YLSY Government Scholarship Program",
-    period: "2025",
+    period: "2024",
     description:
       "Sponsored by the Republic of Turkey as the sole selected candidate for graduate studies abroad.",
     icon: GraduationCap,
@@ -172,7 +180,7 @@ const education = [
 
 const experiences = [
   {
-    title: "Data Engineer",
+    title: "Data Scientist & Software Developer",
     company: "Kale Group",
     period: "Feb 2025 - Present",
     description:
@@ -187,14 +195,6 @@ const experiences = [
       "• Collaborated with the software development team to design and develop banking applications.\n• Built FabrieBank, a banking system developed with C# (.NET) and PostgreSQL, following layered architecture design principles\n• Applied banking business logic and transaction workflows in application development.\n• Wrote clean, efficient, and maintainable code for various banking software modules.\n• Developed and optimized SQL queries for PostgreSQL databases, enhancing application performance and data integrity",
     icon: Briefcase,
   },
-  {
-    title: "Mobile App Developer Intern",
-    company: "Google Turkey Game & App Academy",
-    period: "Nov 2022 - June 2023",
-    description:
-      "• Completed intensive Flutter and Dart training, specializing in mobile UI/UX and API integration\n• Earned 6 certificates through Google's Project Management program, focusing on agile methodologies and risk management\n• Built mobile apps integrating RESTful APIs and Firebase services, delivering production-ready solutions\n• Participated in Ideathon, Game Jam, and Bootcamp events, developing rapid prototypes with cross-functional teams",
-    icon: Briefcase,
-  },
 ];
 
 const funFacts = [
@@ -206,7 +206,7 @@ const funFacts = [
   },
   {
     title: "Language Proficiency",
-    description: "IELTS Academic Score: 6.5",
+    description: "IELTS Academic Score: 7.0",
     icon: Globe,
   },
   {

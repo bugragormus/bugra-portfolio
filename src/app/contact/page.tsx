@@ -264,7 +264,7 @@ export default function Contact() {
                 Download Resume
               </motion.h2>
               <motion.a
-                href="/resume.pdf"
+                href="/CV_Bugra_Gormus.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 initial={{ opacity: 0 }}
