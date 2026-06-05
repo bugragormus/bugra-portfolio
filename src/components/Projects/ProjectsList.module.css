@@ -1,0 +1,224 @@
+.section {
+  padding: 4rem 0 8rem;
+}
+
+.headerContainer {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.title {
+  font-family: var(--font-sans);
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.5rem;
+  color: var(--secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Filter bar and search container */
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  .controls {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.filterList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.filterBtn {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  background: none;
+  border: 1px solid var(--card-border);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  color: var(--secondary);
+  transition: all 0.2s ease;
+}
+
+.filterBtn:hover {
+  color: var(--foreground);
+  border-color: var(--foreground);
+}
+
+.activeFilterBtn {
+  background-color: var(--foreground);
+  color: var(--background);
+  border-color: var(--foreground);
+}
+
+.searchWrapper {
+  position: relative;
+  max-width: 300px;
+  width: 100%;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  color: var(--foreground);
+  transition: all 0.2s ease;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: var(--foreground);
+}
+
+/* Categories & Projects layout */
+.categoryBlock {
+  margin-bottom: 5rem;
+}
+
+.categoryHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.categoryTitle {
+  font-family: var(--font-sans);
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.categoryIcon {
+  color: var(--accent);
+}
+
+.grid {
+  display: grid;
+  grid-template-cols: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.card {
+  border: 1px solid var(--card-border);
+  background-color: var(--card-bg);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.card:hover {
+  border-color: var(--foreground);
+  box-shadow: var(--card-hover-shadow);
+}
+
+.featuredIndicator {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.featuredIndicator::before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  background-color: var(--accent);
+  border-radius: 50%;
+}
+
+.cardHeader {
+  margin-bottom: 1.5rem;
+}
+
+.cardTitle {
+  font-family: var(--font-sans);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  padding-right: 4rem; /* Safe space for featured tag */
+}
+
+.cardDesc {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--secondary);
+}
+
+.tagsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  background-color: var(--background);
+  color: var(--secondary);
+  border: 1px solid var(--card-border);
+  padding: 0.25rem 0.5rem;
+}
+
+.links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.projectLink {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--secondary);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.projectLink:hover {
+  color: var(--foreground);
+}

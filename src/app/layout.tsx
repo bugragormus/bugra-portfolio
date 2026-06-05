@@ -1,9 +1,10 @@
 import "./globals.css";
-import Header from "@/components/Header";
+import Header from "@/components/Header/Header";
+import Footer from "@/components/Footer/Footer";
 
 export const metadata = {
-  title: "Bugra Gormus | Portfolio",
-  description: "Personal portfolio website of Bugra Gormus.",
+  title: "Buğra Görmüş | AI Researcher & Data Scientist",
+  description: "Personal portfolio of Buğra Görmüş, AI Researcher and Data Scientist. MSc Candidate in Artificial Intelligence at USI Lugano.",
 };
 
 export default function RootLayout({
@@ -14,11 +15,14 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className="bg-gray-900 text-gray-100 min-h-screen"
+        className="min-h-screen flex flex-col"
         suppressHydrationWarning
       >
         <Header />
-        <main>{children}</main>
+        <main style={{ flex: 1, display: "flex", flexDirection: "column" }}>
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );
