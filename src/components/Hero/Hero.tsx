@@ -15,7 +15,7 @@ const Hero = () => {
           transition={{ duration: 0.6 }}
           className={styles.metaHeader}
         >
-          Data Scientist & ML Engineer
+          Data Scientist
         </motion.div>
 
         <motion.h1
@@ -35,8 +35,8 @@ const Hero = () => {
           className={styles.description}
         >
           Currently pursuing a Master of Science in Artificial Intelligence at the{" "}
-          <strong>Università della Svizzera italiana (USI)</strong> in Lugano, Switzerland. 
-          Focusing on designing advanced machine learning architectures, statistical model 
+          <strong>Università della Svizzera italiana (USI)</strong> in Lugano, Switzerland.
+          Focusing on designing advanced machine learning architectures, statistical model
           forecasting, and robust data workflows to solve complex industrial issues.
         </motion.p>
 
