@@ -36,32 +36,22 @@
 }
 
 .logo {
-  font-family: var(--font-sans);
-  font-weight: 800;
-  font-size: 1.1rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--foreground);
   display: flex;
   align-items: center;
-  gap: 0.5rem;
   transition: opacity 0.2s ease;
 }
 
-.logoSub {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  font-weight: 400;
-  color: var(--secondary);
-  border-left: 1px solid var(--card-border);
-  padding-left: 0.5rem;
-  margin-left: 0.25rem;
-  text-transform: none;
-  letter-spacing: 0;
+.logoImage {
+  border-radius: 50%;
+  border: 1px solid var(--card-border);
+  background-color: var(--card-bg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s ease;
 }
 
-.logo:hover {
-  opacity: 0.8;
+.logo:hover .logoImage {
+  transform: scale(1.08) rotate(5deg);
+  border-color: var(--accent);
 }
 
 .nav {

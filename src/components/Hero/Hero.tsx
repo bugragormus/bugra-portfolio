@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import styles from "./Hero.module.css";
 
@@ -9,6 +10,22 @@ const Hero = () => {
     <section className={styles.hero}>
       <div className={`${styles.gridBg} bg-grid-pattern`}></div>
       <div className={styles.content}>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.85 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+          className={styles.logoContainer}
+        >
+          <Image
+            src="/logo-small.png"
+            alt="Buğra Görmüş Logo"
+            width={90}
+            height={90}
+            className={styles.heroLogo}
+            priority
+          />
+        </motion.div>
+
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}

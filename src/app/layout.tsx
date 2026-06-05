@@ -5,6 +5,9 @@ import Footer from "@/components/Footer/Footer";
 export const metadata = {
   title: "Buğra Görmüş | AI Researcher & Data Scientist",
   description: "Personal portfolio of Buğra Görmüş, AI Researcher and Data Scientist. MSc Candidate in Artificial Intelligence at USI Lugano.",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({

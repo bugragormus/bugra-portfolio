@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
@@ -31,9 +32,15 @@ const Header = () => {
     <header className={`${styles.header} ${isScrolled ? styles.scrolled : ""}`}>
       <div className={styles.container}>
         {/* Logo */}
-        <Link href="/" className={styles.logo}>
-          Buğra Görmüş
-          <span className={styles.logoSub}>MSc AI</span>
+        <Link href="/" className={styles.logo} aria-label="Buğra Görmüş Portfolio Home">
+          <Image
+            src="/logo-small.png"
+            alt="Buğra Görmüş Logo"
+            width={40}
+            height={40}
+            className={styles.logoImage}
+            priority
+          />
         </Link>
 
         {/* Desktop Navigation */}
@@ -71,9 +78,8 @@ const Header = () => {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`${styles.mobileNavLink} ${
-                  isActive ? styles.mobileNavLinkActive : ""
-                }`}
+                className={`${styles.mobileNavLink} ${isActive ? styles.mobileNavLinkActive : ""
+                  }`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.name}
