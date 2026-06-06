@@ -78,14 +78,6 @@ const Hero = () => {
           className={styles.dataGridPreview}
         >
           <div className={styles.statItem}>
-            <span className={styles.statLabel}>Program</span>
-            <span className={styles.statValue}>MSc in AI</span>
-          </div>
-          <div className={styles.statItem}>
-            <span className={styles.statLabel}>Funding</span>
-            <span className={styles.statValue}>YLSY Scholar</span>
-          </div>
-          <div className={styles.statItem}>
             <span className={styles.statLabel}>Location</span>
             <span className={styles.statValue}>Lugano, CH</span>
           </div>
