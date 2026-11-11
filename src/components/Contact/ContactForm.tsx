@@ -1,10 +1,12 @@
 "use client";
 
 import { useContactController } from "@/controllers/useContactController";
+import { useLanguage } from "@/context/LanguageContext";
 import { Mail, Github, Linkedin, MapPin, Download } from "lucide-react";
 import styles from "./ContactForm.module.css";
 
 const ContactForm = () => {
+  const { t } = useLanguage();
   const {
     formData,
     isSubmitting,
@@ -16,7 +18,7 @@ const ContactForm = () => {
   const contactDetails = [
     {
       icon: Mail,
-      label: "Email Address",
+      label: t("emailAddress") || "Email Address",
       value: "bugra.gormus@hotmail.com",
       href: "mailto:bugra.gormus@hotmail.com",
     },
@@ -34,7 +36,7 @@ const ContactForm = () => {
     },
     {
       icon: MapPin,
-      label: "Location",
+      label: t("locationLugano") || "Lugano, Switzerland",
       value: "Lugano, Switzerland",
       href: null,
     },
@@ -44,16 +46,16 @@ const ContactForm = () => {
     <section className={styles.section}>
       <div className="editorial-container">
         <div className={styles.headerContainer}>
-          <h2 className={styles.title}>Let&apos;s Connect</h2>
+          <h2 className={styles.title}>{t("contactTitle")}</h2>
           <p className={styles.subtitle}>
-            Have an open role, research idea, or data engineering challenge? I&apos;d love to hear from you.
+            {t("contactSubtitle")}
           </p>
         </div>
 
         <div className={styles.layout}>
           {/* Form Side */}
           <div className={styles.formCard}>
-            <h3 className={styles.formTitle}>Send a Message</h3>
+            <h3 className={styles.formTitle}>{t("sendAMessage")}</h3>
             <form onSubmit={handleSubmit}>
               {submitStatus.type && (
                 <div
@@ -69,7 +71,7 @@ const ContactForm = () => {
 
               <div className={styles.formGroup}>
                 <label htmlFor="name" className={styles.label}>
-                  Full Name
+                  {t("fullName")}
                 </label>
                 <input
                   type="text"
@@ -84,7 +86,7 @@ const ContactForm = () => {
 
               <div className={styles.formGroup}>
                 <label htmlFor="email" className={styles.label}>
-                  Email Address
+                  {t("emailAddress")}
                 </label>
                 <input
                   type="email"
@@ -99,7 +101,7 @@ const ContactForm = () => {
 
               <div className={styles.formGroup}>
                 <label htmlFor="message" className={styles.label}>
-                  Message Text
+                  {t("messageText")}
                 </label>
                 <textarea
                   id="message"
@@ -113,7 +115,7 @@ const ContactForm = () => {
               </div>
 
               <button type="submit" disabled={isSubmitting} className={styles.submitBtn}>
-                {isSubmitting ? "Sending message..." : "Send Message"}
+                {isSubmitting ? t("sendingBtn") : t("sendBtn")}
               </button>
             </form>
           </div>
@@ -121,7 +123,7 @@ const ContactForm = () => {
           {/* Info Side */}
           <div className={styles.infoColumn}>
             <div className={styles.infoCard}>
-              <h3 className={styles.infoTitle}>Direct Channels</h3>
+              <h3 className={styles.infoTitle}>{t("directChannels")}</h3>
               <div className={styles.contactList}>
                 {contactDetails.map((detail, index) => {
                   const DetailIcon = detail.icon;
@@ -161,17 +163,16 @@ const ContactForm = () => {
             </div>
 
             <div className={styles.resumeBox}>
-              <h3 className={styles.resumeTitle}>Curriculum Vitae</h3>
+              <h3 className={styles.resumeTitle}>{t("cvTitle")}</h3>
               <p className={styles.resumeText}>
-                Review a comprehensive record of academic background, machine learning publications,
-                and software systems experience.
+                {t("cvText")}
               </p>
               <a
                 href="/CV_Bugra_Gormus.pdf"
                 download="Bugra_Gormus_CV.pdf"
                 className={styles.downloadBtn}
               >
-                <Download size={14} /> Download CV
+                <Download size={14} /> {t("btnDownloadCV")}
               </a>
             </div>
           </div>

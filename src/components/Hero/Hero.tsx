@@ -16,10 +16,12 @@ import {
   Layers
 } from "lucide-react";
 import { useViewMode } from "@/context/ViewModeContext";
+import { useLanguage } from "@/context/LanguageContext";
 import styles from "./Hero.module.css";
 
 const Hero = () => {
   const { mode } = useViewMode();
+  const { t } = useLanguage();
   const [luganoTime, setLuganoTime] = useState<string>("");
 
   useEffect(() => {
@@ -79,7 +81,7 @@ const Hero = () => {
               }}
             />
             <span style={{ fontWeight: 600, color: "var(--foreground)" }}>
-              Available for SWE & Data Science roles
+              {t("availableBadge")}
             </span>
           </div>
 
@@ -87,7 +89,7 @@ const Hero = () => {
 
           <div style={{ display: "flex", alignItems: "center", gap: "0.35rem" }}>
             <MapPin size={12} color="var(--primary)" />
-            <span>Lugano, Switzerland</span>
+            <span>{t("locationLugano")}</span>
           </div>
 
           <span style={{ color: "var(--card-border)" }}>|</span>
@@ -123,7 +125,7 @@ const Hero = () => {
             style={{ display: "flex", flexDirection: "column", gap: "0.25rem" }}
           >
             <div className={styles.metaHeader}>
-              <span>Software Engineer &bull; Data Scientist</span>
+              <span>{t("roleTitle")}</span>
             </div>
             <span
               style={{
@@ -132,7 +134,7 @@ const Hero = () => {
                 color: "var(--secondary)",
               }}
             >
-              Native macOS &bull; Industrial ML &bull; Cloud Architectures
+              {t("roleSubtitle")}
             </span>
           </motion.div>
         </div>
@@ -147,8 +149,8 @@ const Hero = () => {
           Buğra Görmüş
           <span className={styles.serifDetail}>
             {mode === "recruiter"
-              ? "Turning complex data & code into business velocity."
-              : "Bridging predictive models & high-performance systems."}
+              ? t("heroHeadlineRecruiter")
+              : t("heroHeadlineEngineer")}
           </span>
         </motion.h1>
 
@@ -159,15 +161,9 @@ const Hero = () => {
           transition={{ duration: 0.7, delay: 0.2 }}
           className={styles.description}
         >
-          {mode === "recruiter" ? (
-            <>
-              Software Engineer & Data Scientist with proven industrial experience deploying machine learning systems at <strong>Kale Group</strong> (cutting financial reporting cycles by 70%) and engineering native macOS applications (<strong>OnCue in Swift/AVKit</strong>). Specialized in reliable automated ETL pipelines, time-series forecasting, and scalable backend services.
-            </>
-          ) : (
-            <>
-              Designing production-grade machine learning pipelines, time-series anomaly detection, and native systems. Comfortable operating across low-level frameworks (<strong>Swift/AVKit on macOS</strong>), enterprise backends (<strong>C# .NET, PostgreSQL</strong>), and data pipelines (<strong>Python, Scikit-learn, TensorFlow</strong>).
-            </>
-          )}
+          {mode === "recruiter"
+            ? t("heroDescRecruiter")
+            : t("heroDescEngineer")}
         </motion.p>
 
         {/* Action CTAs */}
@@ -178,7 +174,7 @@ const Hero = () => {
           className={styles.ctas}
         >
           <Link href="/projects" className={styles.btnPrimary}>
-            <span>View Case Studies & Repos</span>
+            <span>{t("btnViewProjects")}</span>
             <ArrowRight size={14} style={{ display: "inline", marginLeft: "0.4rem" }} />
           </Link>
 
@@ -189,7 +185,7 @@ const Hero = () => {
             style={{ display: "inline-flex", alignItems: "center", gap: "0.4rem" }}
           >
             <FileText size={14} />
-            <span>Download CV (PDF)</span>
+            <span>{t("btnDownloadCV")}</span>
           </a>
 
           <a
@@ -210,7 +206,7 @@ const Hero = () => {
             }}
           >
             <Sparkles size={14} />
-            <span>Interactive Model Lab</span>
+            <span>{t("btnTryLab")}</span>
           </a>
         </motion.div>
 
@@ -230,41 +226,41 @@ const Hero = () => {
         >
           <div className={styles.statItem}>
             <span className={styles.statLabel} style={{ display: "inline-flex", alignItems: "center", gap: "0.3rem" }}>
-              <TrendingUp size={12} color="var(--accent)" /> Production Velocity
+              <TrendingUp size={12} color="var(--accent)" /> {t("statImpactLabel")}
             </span>
-            <span className={styles.statValue}>-70% Reporting Latency</span>
+            <span className={styles.statValue}>{t("statImpactVal")}</span>
             <span style={{ fontSize: "0.75rem", color: "var(--secondary)" }}>
-              Automated factory IoT & financial pipelines @ Kale Group
+              {t("statImpactDesc")}
             </span>
           </div>
 
           <div className={styles.statItem}>
             <span className={styles.statLabel} style={{ display: "inline-flex", alignItems: "center", gap: "0.3rem" }}>
-              <Cpu size={12} color="var(--primary)" /> Native Systems
+              <Cpu size={12} color="var(--primary)" /> {t("statNativeLabel")}
             </span>
-            <span className={styles.statValue}>OnCue for macOS (Swift)</span>
+            <span className={styles.statValue}>{t("statNativeVal")}</span>
             <span style={{ fontSize: "0.75rem", color: "var(--secondary)" }}>
-              Hardware 4K 60fps HDR, Apple AVKit, Multi-View streaming
+              {t("statNativeDesc")}
             </span>
           </div>
 
           <div className={styles.statItem}>
             <span className={styles.statLabel} style={{ display: "inline-flex", alignItems: "center", gap: "0.3rem" }}>
-              <Database size={12} color="var(--accent)" /> Continuous Data Ingestion
+              <Database size={12} color="var(--accent)" /> {t("statETLLabel")}
             </span>
-            <span className={styles.statValue}>100k+ Records Ingested</span>
+            <span className={styles.statValue}>{t("statETLVal")}</span>
             <span style={{ fontSize: "0.75rem", color: "var(--secondary)" }}>
-              Daily GitHub Actions CI/CD ETL on Padok Analytics
+              {t("statETLDesc")}
             </span>
           </div>
 
           <div className={styles.statItem}>
             <span className={styles.statLabel} style={{ display: "inline-flex", alignItems: "center", gap: "0.3rem" }}>
-              <Layers size={12} color="var(--foreground)" /> Versatile Core
+              <Layers size={12} color="var(--foreground)" /> {t("statVersatileLabel")}
             </span>
-            <span className={styles.statValue}>Swift &bull; Python &bull; C# .NET</span>
+            <span className={styles.statValue}>{t("statVersatileVal")}</span>
             <span style={{ fontSize: "0.75rem", color: "var(--secondary)" }}>
-              PostgreSQL, Next.js, and automated media pipelines
+              {t("statVersatileDesc")}
             </span>
           </div>
         </motion.div>

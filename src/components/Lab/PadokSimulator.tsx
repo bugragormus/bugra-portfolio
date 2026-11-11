@@ -4,6 +4,7 @@ import { useState, useId } from "react";
 import { motion } from "framer-motion";
 import { Sparkles, Sliders, ExternalLink, RefreshCw, Trophy, Activity, Info } from "lucide-react";
 import Link from "next/link";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface Candidate {
   id: string;
@@ -65,6 +66,7 @@ const CANDIDATES: Candidate[] = [
 ];
 
 export default function PadokSimulator() {
+  const { t } = useLanguage();
   const [jockeyWeight, setJockeyWeight] = useState(35);
   const [bloodlineWeight, setBloodlineWeight] = useState(30);
   const [formWeight, setFormWeight] = useState(35);
@@ -199,7 +201,7 @@ export default function PadokSimulator() {
               transition: "all 0.2s ease",
             }}
           >
-            <Info size={14} /> {isExplaining ? "Hide Mechanics" : "Explain Model"}
+            <Info size={14} /> {isExplaining ? t("labExplainHide") : t("labExplainShow")}
           </button>
           <a
             href="https://github.com/bugragormus/Padok"
@@ -220,7 +222,7 @@ export default function PadokSimulator() {
               transition: "all 0.2s ease",
             }}
           >
-            Repo <ExternalLink size={12} />
+            {t("labPadokRepo")} <ExternalLink size={12} />
           </a>
         </div>
       </div>
@@ -268,7 +270,7 @@ export default function PadokSimulator() {
                 gap: "0.35rem",
               }}
             >
-              <Sliders size={14} /> Hyperparameter Tuning
+              <Sliders size={14} /> {t("labHyperparameters")}
             </span>
             <button
               onClick={handleReset}
@@ -283,14 +285,14 @@ export default function PadokSimulator() {
                 cursor: "pointer",
               }}
             >
-              <RefreshCw size={12} /> Reset
+              <RefreshCw size={12} /> {t("labReset")}
             </button>
           </div>
 
           {/* Slider 1: Jockey */}
           <div>
             <div style={{ display: "flex", justifyContent: "space-between", fontSize: "0.85rem", marginBottom: "0.35rem" }}>
-              <label htmlFor={jockeySliderId} style={{ fontWeight: 600, cursor: "pointer" }}>Jockey Impact Weight</label>
+              <label htmlFor={jockeySliderId} style={{ fontWeight: 600, cursor: "pointer" }}>{t("labJockeyWeight")}</label>
               <span style={{ fontFamily: "var(--font-mono)", color: "var(--primary)" }}>
                 {jockeyWeight}%
               </span>
@@ -314,7 +316,7 @@ export default function PadokSimulator() {
           {/* Slider 2: Sire */}
           <div>
             <div style={{ display: "flex", justifyContent: "space-between", fontSize: "0.85rem", marginBottom: "0.35rem" }}>
-              <label htmlFor={bloodlineSliderId} style={{ fontWeight: 600, cursor: "pointer" }}>Sire Bloodline & Stamina</label>
+              <label htmlFor={bloodlineSliderId} style={{ fontWeight: 600, cursor: "pointer" }}>{t("labSireWeight")}</label>
               <span style={{ fontFamily: "var(--font-mono)", color: "var(--accent)" }}>
                 {bloodlineWeight}%
               </span>
@@ -338,7 +340,7 @@ export default function PadokSimulator() {
           {/* Slider 3: Recent Form */}
           <div>
             <div style={{ display: "flex", justifyContent: "space-between", fontSize: "0.85rem", marginBottom: "0.35rem" }}>
-              <label htmlFor={formSliderId} style={{ fontWeight: 600, cursor: "pointer" }}>Recent Form & Pace Momentum</label>
+              <label htmlFor={formSliderId} style={{ fontWeight: 600, cursor: "pointer" }}>{t("labFormWeight")}</label>
               <span style={{ fontFamily: "var(--font-mono)", color: "#b25e22" }}>
                 {formWeight}%
               </span>
@@ -362,7 +364,7 @@ export default function PadokSimulator() {
           {/* Track Condition Toggle */}
           <div>
             <span style={{ display: "block", fontSize: "0.85rem", fontWeight: 600, marginBottom: "0.5rem" }}>
-              Track Surface Condition
+              {t("labTrackCondition")}
             </span>
             <div
               style={{
@@ -391,7 +393,7 @@ export default function PadokSimulator() {
                   transition: "all 0.2s",
                 }}
               >
-                🌿 Normal Turf (Çim)
+                {t("labTurf")}
               </button>
               <button
                 type="button"
@@ -409,7 +411,7 @@ export default function PadokSimulator() {
                   transition: "all 0.2s",
                 }}
               >
-                🌧️ Heavy Mud (Çamur)
+                {t("labMud")}
               </button>
             </div>
           </div>
@@ -441,7 +443,7 @@ export default function PadokSimulator() {
                 gap: "0.35rem",
               }}
             >
-              <Activity size={14} /> Backtested Standings
+              <Activity size={14} /> {t("labStandings")}
             </span>
             <span
               style={{
@@ -450,7 +452,7 @@ export default function PadokSimulator() {
                 color: "var(--secondary)",
               }}
             >
-              Live Calculated
+              {t("labCalculated")}
             </span>
           </div>
 
@@ -470,7 +472,7 @@ export default function PadokSimulator() {
               <Trophy size={18} color="var(--accent)" />
               <div>
                 <span style={{ fontSize: "0.7rem", color: "var(--accent)", fontWeight: 600, textTransform: "uppercase" }}>
-                  Model Top Pick
+                  {t("labTopPick")}
                 </span>
                 <div style={{ fontWeight: 700, fontSize: "0.95rem" }}>{topCandidate.name}</div>
               </div>
@@ -486,7 +488,7 @@ export default function PadokSimulator() {
               >
                 {topCandidate.score}
               </div>
-              <span style={{ fontSize: "0.65rem", color: "var(--secondary)" }}>Normalized Index</span>
+              <span style={{ fontSize: "0.65rem", color: "var(--secondary)" }}>{t("labNormalizedIndex")}</span>
             </div>
           </div>
 
@@ -602,7 +604,7 @@ export default function PadokSimulator() {
                 textDecoration: "underline",
               }}
             >
-              See Full Model
+              {t("labSeeFull")}
             </Link>
           </div>
         </div>

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useProjectsController } from "@/controllers/useProjectsController";
 import { useViewMode } from "@/context/ViewModeContext";
+import { useLanguage } from "@/context/LanguageContext";
 import { Github, ExternalLink, Target, Workflow, Sparkles } from "lucide-react";
 import styles from "./ProjectsList.module.css";
 
@@ -16,6 +17,7 @@ const ProjectsList = () => {
     categoriesList,
   } = useProjectsController();
   const { mode } = useViewMode();
+  const { t } = useLanguage();
 
   const catColors: Record<string, { text: string; bg: string; border: string }> = {
     all: { text: "#94a3b8", bg: "rgba(148, 163, 184, 0.1)", border: "rgba(148, 163, 184, 0.2)" },
@@ -32,7 +34,7 @@ const ProjectsList = () => {
         <div className={styles.headerContainer}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.4rem" }}>
             <span className="mono-tag" style={{ color: "var(--accent)" }}>
-              Technical Portfolio & Production Repos
+              {t("projectsCatalogTag")}
             </span>
             <span
               style={{
@@ -45,12 +47,12 @@ const ProjectsList = () => {
                 fontWeight: 600,
               }}
             >
-              Mode: {mode === "recruiter" ? "Recruiter (Impact Focus)" : "Engineer (Architecture Focus)"}
+              {mode === "recruiter" ? t("modeNoticeRecruiter") : t("modeNoticeEngineer")}
             </span>
           </div>
-          <h2 className={styles.title}>Engineered Systems & Case Studies</h2>
+          <h2 className={styles.title}>{t("projectsPageTitle")}</h2>
           <p className={styles.subtitle}>
-            From low-level native macOS media streaming to industrial machine learning and automated video synthesis.
+            {t("projectsPageSubtitle")}
           </p>
         </div>
 
@@ -87,7 +89,7 @@ const ProjectsList = () => {
           <div className={styles.searchWrapper}>
             <input
               type="text"
-              placeholder="Search technologies, frameworks, or systems..."
+              placeholder={t("searchPlaceholder")}
               value={searchQuery}
               onChange={(e) => handleSearchChange(e.target.value)}
               className={styles.searchInput}
@@ -254,7 +256,7 @@ const ProjectsList = () => {
                               rel="noopener noreferrer"
                               className={styles.projectLink}
                             >
-                              <Github size={14} /> Code Repo
+                              <Github size={14} /> {t("codeRepo")}
                             </a>
                           )}
                           {project.live && (
@@ -264,7 +266,7 @@ const ProjectsList = () => {
                               rel="noopener noreferrer"
                               className={styles.projectLink}
                             >
-                              <ExternalLink size={14} /> Live System
+                              <ExternalLink size={14} /> {t("liveSystem")}
                             </a>
                           )}
                         </div>
@@ -277,7 +279,7 @@ const ProjectsList = () => {
           })
         ) : (
           <div style={{ textAlign: "center", padding: "4rem 0", color: "var(--secondary)" }}>
-            No engineering systems match your query.
+            {t("noProjectsMatch")}
           </div>
         )}
       </div>

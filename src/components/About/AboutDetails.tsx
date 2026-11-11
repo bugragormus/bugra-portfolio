@@ -3,19 +3,28 @@
 import { motion } from "framer-motion";
 import { cvData } from "@/models/cvData";
 import { useAboutController } from "@/controllers/useAboutController";
+import { useLanguage } from "@/context/LanguageContext";
 import { ExternalLink } from "lucide-react";
 import styles from "./AboutDetails.module.css";
 
 const AboutDetails = () => {
   const { activeTab, tabs, handleTabChange } = useAboutController();
+  const { t } = useLanguage();
+
+  const tabLabels: Record<string, string> = {
+    skills: t("tabSkills"),
+    experience: t("tabExperience"),
+    education: t("tabEducation"),
+    certifications: t("tabCertifications"),
+  };
 
   return (
     <section className={styles.section}>
       <div className="editorial-container">
         <div className={styles.headerContainer}>
-          <h2 className={styles.title}>About Me</h2>
+          <h2 className={styles.title}>{t("aboutTitle")}</h2>
           <p className={styles.subtitle}>
-            Bridging rigorous software development with advanced artificial intelligence research.
+            {t("aboutSubtitle")}
           </p>
         </div>
 
@@ -53,7 +62,7 @@ const AboutDetails = () => {
                     className={styles.tabIcon} 
                     style={{ color: isActive ? activeColor.text : "var(--secondary)" }}
                   />
-                  {tab.label}
+                  {tabLabels[tab.id] || tab.label}
                 </button>
               );
             })}
@@ -192,10 +201,10 @@ const AboutDetails = () => {
         >
           <div style={{ marginBottom: "1.5rem" }}>
             <span className="mono-tag" style={{ color: "var(--accent)", display: "block", marginBottom: "0.25rem" }}>
-              Beyond The Technical Resume
+              {t("beyondResume")}
             </span>
             <h3 style={{ fontSize: "1.5rem", fontWeight: 700 }}>
-              Perspective & Research Philosophy
+              {t("perspectiveTitle")}
             </h3>
           </div>
 

@@ -7,10 +7,12 @@ import { projectCategories } from "@/models/projectsData";
 import { ArrowRight, Github, ExternalLink, Zap, Workflow, Target, Cpu, ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { useViewMode } from "@/context/ViewModeContext";
+import { useLanguage } from "@/context/LanguageContext";
 import styles from "../components/Projects/ProjectsList.module.css";
 
 export default function Home() {
   const { mode } = useViewMode();
+  const { t } = useLanguage();
 
   // Extract featured projects across categories
   const featuredProjects = projectCategories.flatMap((cat) =>
@@ -38,7 +40,7 @@ export default function Home() {
             <div>
               <div style={{ display: "flex", alignItems: "center", gap: "0.6rem", marginBottom: "0.5rem" }}>
                 <span className="mono-tag" style={{ color: "var(--accent)" }}>
-                  Curated Case Studies
+                  {t("curatedStudies")}
                 </span>
                 <span
                   style={{
@@ -51,29 +53,40 @@ export default function Home() {
                     fontWeight: 600,
                   }}
                 >
-                  {mode === "recruiter" ? "Recruiter View (Impact & Metrics)" : "Engineer View (System Architectures)"}
+                  {mode === "recruiter" ? t("modeNoticeRecruiter") : t("modeNoticeEngineer")}
                 </span>
               </div>
               <h2 className={styles.title} style={{ margin: 0 }}>
-                Featured Engineering & Projects
+                {t("featuredTitle")}
               </h2>
             </div>
             <Link
               href="/projects"
-              className="inline-flex items-center gap-2"
               style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.5rem",
+                padding: "0.5rem 1rem",
+                borderRadius: "8px",
+                border: "1px solid var(--card-border)",
+                backgroundColor: "var(--card-bg)",
                 fontFamily: "var(--font-mono)",
-                fontSize: "0.8rem",
-                textTransform: "uppercase",
-                letterSpacing: "0.05em",
+                fontSize: "0.78rem",
                 fontWeight: 600,
-                color: "var(--primary)",
-                borderBottom: "1px solid var(--primary)",
-                paddingBottom: "2px",
-                transition: "opacity 0.2s",
+                color: "var(--foreground)",
+                transition: "all 0.2s ease",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = "var(--primary)";
+                e.currentTarget.style.color = "var(--primary)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = "var(--card-border)";
+                e.currentTarget.style.color = "var(--foreground)";
               }}
             >
-              Browse Complete Catalog <ArrowRight size={14} />
+              <span>{t("browseAll")}</span>
+              <ArrowRight size={14} />
             </Link>
           </div>
 
@@ -189,7 +202,7 @@ export default function Home() {
                             marginBottom: "0.4rem",
                           }}
                         >
-                          System Flow
+                          {t("systemFlow")}
                         </span>
                         <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "0.35rem" }}>
                           {project.architecture.map((step, sIdx) => (
@@ -224,7 +237,7 @@ export default function Home() {
                           rel="noopener noreferrer"
                           className={styles.projectLink}
                         >
-                          <Github size={14} /> Code Repo
+                          <Github size={14} /> {t("codeRepo")}
                         </a>
                       )}
                       {project.live && (
@@ -234,7 +247,7 @@ export default function Home() {
                           rel="noopener noreferrer"
                           className={styles.projectLink}
                         >
-                          <ExternalLink size={14} /> Live System
+                          <ExternalLink size={14} /> {t("liveSystem")}
                         </a>
                       )}
                     </div>
@@ -261,15 +274,15 @@ export default function Home() {
               className="mono-tag"
               style={{ color: "var(--accent)", display: "block", marginBottom: "0.5rem" }}
             >
-              Proof of Craft &bull; Live Model Testing
+              {t("labTag")}
             </span>
             <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
               <div>
                 <h2 style={{ fontSize: "2rem", fontWeight: 800, margin: 0, letterSpacing: "-0.02em" }}>
-                  Interactive AI Playground
+                  {t("labTitle")}
                 </h2>
                 <p style={{ color: "var(--secondary)", fontSize: "0.95rem", marginTop: "0.35rem" }}>
-                  A live simulation demonstrator based on the <strong>Padok Gazi Derby Analytics</strong> pipeline.
+                  {t("labDesc")}
                 </p>
               </div>
 
@@ -287,7 +300,7 @@ export default function Home() {
                   fontWeight: 600,
                 }}
               >
-                <Zap size={13} /> Real-time Parameter Reactive
+                <Zap size={13} /> {t("labReactive")}
               </div>
             </div>
           </div>
@@ -336,10 +349,10 @@ export default function Home() {
                 <Target size={20} />
               </div>
               <h3 style={{ fontSize: "1.2rem", fontWeight: 700, marginBottom: "0.5rem" }}>
-                Industrial Impact & Production ML
+                {t("pillar1Title")}
               </h3>
               <p style={{ fontSize: "0.9rem", color: "var(--secondary)", lineHeight: 1.6 }}>
-                Real manufacturing, financial scenario, and sensor pipeline experience at Kale Group. Not just training models in isolated notebooks, but delivering automated ETL, anomaly detection, and accelerating executive reporting cycles by 70%.
+                {t("pillar1Desc")}
               </p>
             </div>
 
@@ -367,10 +380,10 @@ export default function Home() {
                 <Cpu size={20} />
               </div>
               <h3 style={{ fontSize: "1.2rem", fontWeight: 700, marginBottom: "0.5rem" }}>
-                Native macOS & Systems Engineering
+                {t("pillar2Title")}
               </h3>
               <p style={{ fontSize: "0.9rem", color: "var(--secondary)", lineHeight: 1.6 }}>
-                Creator of OnCue: native Swift & SwiftUI application utilizing Apple AVKit for hardware-accelerated 4K 60fps HDR media streaming, concurrent Multi-View decode pipelines, and secure Keychain storage.
+                {t("pillar2Desc")}
               </p>
             </div>
 
@@ -398,10 +411,10 @@ export default function Home() {
                 <Workflow size={20} />
               </div>
               <h3 style={{ fontSize: "1.2rem", fontWeight: 700, marginBottom: "0.5rem" }}>
-                Full-Stack Architecture & Automation
+                {t("pillar3Title")}
               </h3>
               <p style={{ fontSize: "0.9rem", color: "var(--secondary)", lineHeight: 1.6 }}>
-                Software engineering degree (B.Sc. 3.34 GPA). Proven versatility writing typed Next.js interfaces, enterprise C# .NET backends, relational PostgreSQL schemas with ACID transactions, and automated video generation engines.
+                {t("pillar3Desc")}
               </p>
             </div>
           </div>
@@ -428,7 +441,7 @@ export default function Home() {
                 color: "var(--primary)",
               }}
             >
-              Read Full Background & Skills <ArrowUpRight size={14} />
+              {t("readFullJourney")} <ArrowUpRight size={14} />
             </Link>
             <Link
               href="/contact"
@@ -442,7 +455,7 @@ export default function Home() {
                 color: "var(--foreground)",
               }}
             >
-              Get In Touch Directly <ArrowUpRight size={14} />
+              {t("getInTouch")} <ArrowUpRight size={14} />
             </Link>
           </div>
         </div>

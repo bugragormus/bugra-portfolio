@@ -4,9 +4,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { Menu, X, UserCheck, Cpu } from "lucide-react";
+import { Menu, X, UserCheck, Cpu, Globe } from "lucide-react";
 import CommandPalette from "@/components/CommandPalette/CommandPalette";
 import { useViewMode } from "@/context/ViewModeContext";
+import { useLanguage } from "@/context/LanguageContext";
 import styles from "./Header.module.css";
 
 const Header = () => {
@@ -14,6 +15,7 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
   const { mode, toggleMode } = useViewMode();
+  const { language, toggleLanguage, t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,10 +27,10 @@ const Header = () => {
   }, []);
 
   const navItems = [
-    { name: "Home", href: "/" },
-    { name: "Projects", href: "/projects" },
-    { name: "About", href: "/about" },
-    { name: "Contact", href: "/contact" },
+    { name: t("home"), href: "/" },
+    { name: t("projects"), href: "/projects" },
+    { name: t("about"), href: "/about" },
+    { name: t("contact"), href: "/contact" },
   ];
 
   return (
@@ -64,14 +66,14 @@ const Header = () => {
         </div>
 
         {/* Center / Right Nav Items */}
-        <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
           {/* Desktop Navigation */}
           <nav className={styles.nav}>
             {navItems.map((item) => {
               const isActive = pathname === item.href;
               return (
                 <Link
-                  key={item.name}
+                  key={item.href}
                   href={item.href}
                   className={`${styles.navLink} ${isActive ? styles.activeLink : ""}`}
                 >
@@ -104,14 +106,38 @@ const Header = () => {
             {mode === "recruiter" ? (
               <>
                 <UserCheck size={13} />
-                <span>Recruiter View</span>
+                <span className="hidden sm:inline">{t("recruiterView")}</span>
               </>
             ) : (
               <>
                 <Cpu size={13} />
-                <span>Engineer View</span>
+                <span className="hidden sm:inline">{t("engineerView")}</span>
               </>
             )}
+          </button>
+
+          {/* Language Switcher */}
+          <button
+            onClick={toggleLanguage}
+            title={`Switch language / Dili değiştir (Current: ${language.toUpperCase()})`}
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "0.35rem",
+              padding: "0.35rem 0.65rem",
+              borderRadius: "8px",
+              border: "1px solid var(--card-border)",
+              backgroundColor: "var(--card-bg)",
+              color: "var(--foreground)",
+              fontSize: "0.74rem",
+              fontFamily: "var(--font-mono)",
+              fontWeight: 600,
+              cursor: "pointer",
+              transition: "all 0.2s ease",
+            }}
+          >
+            <Globe size={13} color="var(--primary)" />
+            <span>{language.toUpperCase()}</span>
           </button>
 
           {/* Command Palette Trigger */}
@@ -135,7 +161,7 @@ const Header = () => {
             const isActive = pathname === item.href;
             return (
               <Link
-                key={item.name}
+                key={item.href}
                 href={item.href}
                 className={`${styles.mobileNavLink} ${
                   isActive ? styles.mobileNavLinkActive : ""
@@ -146,7 +172,31 @@ const Header = () => {
               </Link>
             );
           })}
-          <div style={{ paddingTop: "0.5rem", borderTop: "1px solid var(--card-border)" }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem", paddingTop: "0.5rem", borderTop: "1px solid var(--card-border)" }}>
+            <button
+              onClick={() => {
+                toggleLanguage();
+              }}
+              style={{
+                width: "100%",
+                padding: "0.6rem 1rem",
+                borderRadius: "8px",
+                border: "1px solid var(--card-border)",
+                backgroundColor: "var(--card-bg)",
+                color: "var(--foreground)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                fontSize: "0.85rem",
+                cursor: "pointer",
+              }}
+            >
+              <span style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                <Globe size={14} color="var(--primary)" /> Dil / Language:
+              </span>
+              <strong style={{ color: "var(--primary)" }}>{language === "en" ? "English" : "Türkçe"}</strong>
+            </button>
+
             <button
               onClick={() => {
                 toggleMode();
@@ -166,9 +216,9 @@ const Header = () => {
                 cursor: "pointer",
               }}
             >
-              <span>Switch Perspective:</span>
+              <span>{t("switchPerspective")}:</span>
               <strong style={{ color: mode === "recruiter" ? "var(--accent)" : "var(--primary)" }}>
-                {mode === "recruiter" ? "Recruiter" : "Engineer"}
+                {mode === "recruiter" ? t("recruiterView") : t("engineerView")}
               </strong>
             </button>
           </div>

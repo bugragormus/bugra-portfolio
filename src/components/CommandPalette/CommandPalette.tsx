@@ -16,9 +16,11 @@ import {
   ToggleRight,
   X,
   Code,
-  GraduationCap
+  GraduationCap,
+  Globe
 } from "lucide-react";
 import { useViewMode } from "@/context/ViewModeContext";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function CommandPalette() {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,6 +28,7 @@ export default function CommandPalette() {
   const [copied, setCopied] = useState(false);
   const router = useRouter();
   const { mode, toggleMode } = useViewMode();
+  const { language, toggleLanguage } = useLanguage();
 
   // Keyboard shortcut listener
   useEffect(() => {
@@ -54,6 +57,16 @@ export default function CommandPalette() {
   };
 
   const actions = [
+    {
+      id: "toggle-lang",
+      title: language === "en" ? "Türkçe Dilini Seç (Switch to Turkish)" : "Switch to English (İngilizceye Geç)",
+      category: "Localization",
+      icon: Globe,
+      action: () => {
+        toggleLanguage();
+        close();
+      },
+    },
     {
       id: "view-mode",
       title: `Switch View Mode (Currently: ${mode === "recruiter" ? "Recruiter" : "Engineer"})`,
