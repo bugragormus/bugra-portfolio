@@ -3,6 +3,7 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Instrument+Serif:ital,wght@0,400;1,400&family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap");
 
 :root {
+  --spacing: 0.25rem;          /* Standard 4px spacing unit for Tailwind */
   /* Balanced Soft Slate / Graphite Palette (Not harsh black, not glaring white) */
   --background: #141820;       /* Calm dark slate background */
   --foreground: #e6edf3;       /* High-readability crisp light text */

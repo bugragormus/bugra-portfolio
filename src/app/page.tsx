@@ -36,7 +36,16 @@ export default function Home() {
         }}
       >
         <div className="editorial-container">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "flex-end",
+              flexWrap: "wrap",
+              gap: "1.5rem",
+              marginBottom: "2.75rem",
+            }}
+          >
             <div>
               <div style={{ display: "flex", alignItems: "center", gap: "0.6rem", marginBottom: "0.5rem" }}>
                 <span className="mono-tag" style={{ color: "var(--accent)" }}>
@@ -66,23 +75,27 @@ export default function Home() {
                 display: "inline-flex",
                 alignItems: "center",
                 gap: "0.5rem",
-                padding: "0.5rem 1rem",
+                padding: "0.55rem 1.15rem",
                 borderRadius: "8px",
                 border: "1px solid var(--card-border)",
                 backgroundColor: "var(--card-bg)",
                 fontFamily: "var(--font-mono)",
-                fontSize: "0.78rem",
+                fontSize: "0.8rem",
                 fontWeight: 600,
                 color: "var(--foreground)",
                 transition: "all 0.2s ease",
+                boxShadow: "0 2px 8px rgba(0, 0, 0, 0.2)",
+                whiteSpace: "nowrap",
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.borderColor = "var(--primary)";
                 e.currentTarget.style.color = "var(--primary)";
+                e.currentTarget.style.transform = "translateY(-1px)";
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.borderColor = "var(--card-border)";
                 e.currentTarget.style.color = "var(--foreground)";
+                e.currentTarget.style.transform = "translateY(0)";
               }}
             >
               <span>{t("browseAll")}</span>
