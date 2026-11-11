@@ -83,19 +83,19 @@ export const projectCategories: ProjectCategory[] = [
         isFeatured: true,
       },
       {
-        title: "Retinal Imaging ML — Deep Eye Pathology Diagnosis",
+        title: "RetinalVision-XAI — Clinical Pathology Diagnosis & Heatmaps",
         description:
-          "Medical computer vision pipeline for automated detection of Diabetic Retinopathy, Glaucoma, and Cataracts from high-resolution retinal fundus scans.",
+          "End-to-end medical computer vision research framework and clinical decision support system detecting Diabetic Retinopathy, Glaucoma, and Cataracts from 4,127 retinal fundus scans with Explainable AI (Grad-CAM).",
         recruiterPitch:
-          "Developed high-accuracy deep convolutional neural network classifiers on medical diagnostic datasets as an engineering thesis, demonstrating end-to-end image preprocessing and clinical CV.",
+          "Authored graduation engineering thesis benchmark across 6 deep learning architectures on 4,127 ophthalmic images, achieving 93.25% test accuracy with InceptionV3 and 100% recall on Diabetic Retinopathy.",
         engineerPitch:
-          "Custom CNN and transfer learning architectures trained with TensorFlow and NumPy. Implemented CLAHE contrast enhancement, geometric augmentation, and cross-entropy loss balancing for class skew.",
-        metric: "Clinical Image Augmentation & Deep CNNs",
-        architecture: ["CLAHE Preprocessing", "Augmentation Pipeline", "Deep CNN Backbone", "Clinical Scoring"],
+          "Trained multi-scale InceptionV3 transfer learning backbone with ReduceLROnPlateau and early stopping. Implemented real-time Grad-CAM backpropagation over the 'mixed10' layer to generate interpretability heatmaps for clinical decision support, deployed on Hugging Face Spaces with Gradio.",
+        metric: "93.25% Test Accuracy & Grad-CAM XAI Heatmaps",
+        architecture: ["InceptionV3 Backbone", "Grad-CAM XAI Engine", "Keras / ONNX Runtime", "Gradio Clinical UI"],
         image: null,
-        tags: ["Python", "TensorFlow", "Computer Vision", "Medical Imaging", "NumPy"],
+        tags: ["Python", "TensorFlow", "Computer Vision", "Explainable AI (XAI)", "Medical Imaging", "Gradio"],
         github: "https://github.com/bugragormus/RetinalImagingML",
-        live: null,
+        live: "https://huggingface.co/spaces/bugragormus/retinal-vision-xai",
         isFeatured: true,
       },
       {

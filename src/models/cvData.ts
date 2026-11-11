@@ -127,8 +127,8 @@ export const cvData = {
       period: "Sep 2020 – July 2024",
       description: "Graduated with CGPA: 3.34/4.",
       bulletPoints: [
-        "Bachelor Thesis (Deep Retina): Developed machine learning models for eye disease detection from medical images.",
-        "Preprocessed retinal images, built and trained classification models, and optimized network architecture for high accuracy."
+        "Bachelor Thesis: RetinalVision-XAI — Comparative Deep Learning Benchmark & Explainable Diagnosis across 4,127 Fundus Scans.",
+        "Benchmarked 6 architectures (InceptionV3, ResNet-SVM, Custom CNN, Random Forest); achieved 93.25% accuracy and engineered Grad-CAM interpretability heatmaps."
       ],
       icon: GraduationCap,
     },
