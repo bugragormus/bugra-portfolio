@@ -41,7 +41,7 @@
   border: 1px solid var(--card-border);
   background-color: var(--card-bg);
   padding: 2.5rem;
-  border-radius: 2px;
+  border-radius: 12px;
 }
 
 .formTitle {
@@ -74,13 +74,14 @@
   background-color: var(--background);
   border: 1px solid var(--card-border);
   color: var(--foreground);
-  border-radius: 2px;
+  border-radius: 6px;
   transition: all 0.2s ease;
 }
 
 .input:focus {
   outline: none;
-  border-color: var(--foreground);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(88, 166, 255, 0.2);
 }
 
 .textarea {
@@ -93,19 +94,19 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  background-color: var(--foreground);
-  color: var(--background);
+  background-color: var(--primary);
+  color: #ffffff;
   width: 100%;
-  padding: 1rem;
-  border: 1px solid var(--foreground);
-  border-radius: 2px;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--primary);
+  border-radius: 6px;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .submitBtn:hover {
-  background-color: transparent;
-  color: var(--foreground);
+  background-color: var(--primary-hover);
+  border-color: var(--primary-hover);
 }
 
 .submitBtn:disabled {
@@ -143,7 +144,7 @@
   border: 1px solid var(--card-border);
   background-color: var(--card-bg);
   padding: 2.5rem;
-  border-radius: 2px;
+  border-radius: 12px;
 }
 
 .infoTitle {
@@ -167,14 +168,14 @@
 }
 
 .iconWrapper {
-  color: var(--accent);
+  color: var(--primary);
   background-color: var(--background);
   border: 1px solid var(--card-border);
   padding: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 2px;
+  border-radius: 6px;
 }
 
 .contactMeta {
@@ -199,7 +200,7 @@
 }
 
 .contactItem:hover .contactValue {
-  color: var(--accent);
+  color: var(--primary);
 }
 
 /* Resume Box Styles */
@@ -207,7 +208,7 @@
   border: 1px solid var(--card-border);
   background-color: var(--card-bg);
   padding: 2.5rem;
-  border-radius: 2px;
+  border-radius: 12px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -233,17 +234,19 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  background-color: transparent;
+  background-color: var(--background);
   color: var(--foreground);
   padding: 0.75rem 1.5rem;
-  border: 1px solid var(--foreground);
-  border-radius: 2px;
+  border: 1px solid var(--card-border);
+  border-radius: 6px;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  transition: all 0.2s ease;
 }
 
 .downloadBtn:hover {
-  background-color: var(--foreground);
-  color: var(--background);
+  background-color: var(--card-bg);
+  border-color: var(--primary);
+  color: var(--primary);
 }

@@ -44,9 +44,9 @@ const ContactForm = () => {
     <section className={styles.section}>
       <div className="editorial-container">
         <div className={styles.headerContainer}>
-          <h2 className={styles.title}>Get in Touch</h2>
+          <h2 className={styles.title}>Let&apos;s Connect</h2>
           <p className={styles.subtitle}>
-            Let&apos;s discuss machine learning research, data collaborations, or software architectures.
+            Have an open role, research idea, or data engineering challenge? I&apos;d love to hear from you.
           </p>
         </div>
 
@@ -113,7 +113,7 @@ const ContactForm = () => {
               </div>
 
               <button type="submit" disabled={isSubmitting} className={styles.submitBtn}>
-                {isSubmitting ? "Transmitting..." : "Send Message"}
+                {isSubmitting ? "Sending message..." : "Send Message"}
               </button>
             </form>
           </div>
@@ -121,7 +121,7 @@ const ContactForm = () => {
           {/* Info Side */}
           <div className={styles.infoColumn}>
             <div className={styles.infoCard}>
-              <h3 className={styles.infoTitle}>Contact Detail Matrix</h3>
+              <h3 className={styles.infoTitle}>Direct Channels</h3>
               <div className={styles.contactList}>
                 {contactDetails.map((detail, index) => {
                   const DetailIcon = detail.icon;

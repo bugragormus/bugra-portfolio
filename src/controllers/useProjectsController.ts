@@ -62,11 +62,11 @@ export const useProjectsController = () => {
     handleCategoryChange,
     handleSearchChange,
     categoriesList: [
-      { id: "all", label: "All Work" },
+      { id: "all", label: "All Systems" },
+      { id: "systems", label: "Native Systems & Media" },
       { id: "ml", label: "Machine Learning & AI" },
-      { id: "data", label: "Data Analysis" },
-      { id: "tools", label: "Utilities" },
-      { id: "web", label: "Engineering" },
+      { id: "data", label: "Enterprise & Analytics" },
+      { id: "web", label: "Full-Stack Software" },
     ],
   };
 };

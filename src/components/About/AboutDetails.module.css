@@ -60,13 +60,13 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-weight: 600;
-  background: none;
+  background-color: var(--card-bg);
   border: 1px solid var(--card-border);
   padding: 0.75rem 1.25rem;
   text-align: left;
   cursor: pointer;
   color: var(--secondary);
-  border-radius: 2px;
+  border-radius: 6px;
   white-space: nowrap;
   display: flex;
   align-items: center;
@@ -76,19 +76,19 @@
 
 .tabBtn:hover {
   color: var(--foreground);
-  border-color: var(--foreground);
+  border-color: var(--primary);
 }
 
 .activeTabBtn {
-  color: var(--background);
-  background-color: var(--foreground);
-  border-color: var(--foreground);
+  color: #ffffff;
+  background-color: var(--primary);
+  border-color: var(--primary);
 }
 
 /* Skills grid */
 .skillsGrid {
   display: grid;
-  grid-template-cols: 1fr;
+  grid-template-columns: 1fr;
   gap: 2rem;
 }
 
@@ -102,7 +102,7 @@
   border: 1px solid var(--card-border);
   background-color: var(--card-bg);
   padding: 2rem;
-  border-radius: 2px;
+  border-radius: 10px;
 }
 
 .skillCategoryTitle {

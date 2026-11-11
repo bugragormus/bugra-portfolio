@@ -26,10 +26,10 @@ const AboutDetails = () => {
               const TabIcon = tab.icon;
               const isActive = activeTab === tab.id;
               const tabColors = {
-                skills: { text: "#2e634e", bg: "#edf6f2", border: "#cce6da" },
-                experience: { text: "#4a5585", bg: "#f0f2f9", border: "#d6daf0" },
-                education: { text: "#2b5c8f", bg: "#ebf3fc", border: "#c5def7" },
-                certifications: { text: "#9c652e", bg: "#faf1e6", border: "#f3dec5" },
+                skills: { text: "#34d399", bg: "rgba(52, 211, 153, 0.12)", border: "rgba(52, 211, 153, 0.3)" },
+                experience: { text: "#38bdf8", bg: "rgba(56, 189, 248, 0.12)", border: "rgba(56, 189, 248, 0.3)" },
+                education: { text: "#a78bfa", bg: "rgba(167, 139, 250, 0.12)", border: "rgba(167, 139, 250, 0.3)" },
+                certifications: { text: "#fb923c", bg: "rgba(251, 146, 60, 0.12)", border: "rgba(251, 146, 60, 0.3)" },
               };
               const activeColor = tabColors[tab.id];
 
@@ -179,8 +179,53 @@ const AboutDetails = () => {
               </motion.div>
             )}
 
-
           </main>
+        </div>
+
+        {/* Personal Highlights & Working Philosophy */}
+        <div
+          style={{
+            marginTop: "4rem",
+            paddingTop: "2.5rem",
+            borderTop: "1px solid var(--card-border)",
+          }}
+        >
+          <div style={{ marginBottom: "1.5rem" }}>
+            <span className="mono-tag" style={{ color: "var(--accent)", display: "block", marginBottom: "0.25rem" }}>
+              Beyond The Technical Resume
+            </span>
+            <h3 style={{ fontSize: "1.5rem", fontWeight: 700 }}>
+              Perspective & Research Philosophy
+            </h3>
+          </div>
+
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+              gap: "1.5rem",
+            }}
+          >
+            {cvData.funFacts.map((fact, idx) => (
+              <div
+                key={idx}
+                style={{
+                  padding: "1.5rem",
+                  borderRadius: "10px",
+                  backgroundColor: "var(--card-bg)",
+                  border: "1px solid var(--card-border)",
+                  boxShadow: "0 4px 12px rgba(0,0,0,0.02)",
+                }}
+              >
+                <h4 style={{ fontSize: "1rem", fontWeight: 700, marginBottom: "0.5rem", color: "var(--foreground)" }}>
+                  {fact.title}
+                </h4>
+                <p style={{ fontSize: "0.85rem", color: "var(--secondary)", lineHeight: 1.6 }}>
+                  {fact.description}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

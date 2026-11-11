@@ -106,17 +106,20 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  background-color: var(--foreground);
-  color: var(--background);
-  padding: 1rem 2rem;
-  border-radius: 2px;
-  border: 1px solid var(--foreground);
+  background-color: var(--primary);
+  color: #ffffff;
+  padding: 0.85rem 1.6rem;
+  border-radius: 6px;
+  border: 1px solid var(--primary);
   transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
 }
 
 .btnPrimary:hover {
-  background-color: transparent;
-  color: var(--foreground);
+  background-color: var(--primary-hover);
+  border-color: var(--primary-hover);
+  transform: translateY(-1px);
 }
 
 .btnSecondary {
@@ -125,16 +128,20 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  background-color: transparent;
+  background-color: var(--card-bg);
   color: var(--foreground);
-  padding: 1rem 2rem;
-  border-radius: 2px;
+  padding: 0.85rem 1.6rem;
+  border-radius: 6px;
   border: 1px solid var(--card-border);
   transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
 }
 
 .btnSecondary:hover {
-  border-color: var(--foreground);
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-1px);
 }
 
 .dataGridPreview {

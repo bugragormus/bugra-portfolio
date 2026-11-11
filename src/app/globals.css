@@ -3,25 +3,24 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Instrument+Serif:ital,wght@0,400;1,400&family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap");
 
 :root {
-  /* Premium Editorial Warm Pastel Palette */
-  --background: #f7f5f0;       /* Soft warm stone/paper background */
-  --foreground: #2d3238;       /* Deep charcoal text (high readability, non-depressing) */
-  --primary: #3d5a80;          /* Soft slate blue (Primary accent) */
-  --primary-hover: #293e56;    /* Darker slate blue */
-  --secondary: #606f7b;        /* Muted slate gray */
-  --accent: #5e8c7c;           /* Sophisticated sage green (Data highlight) */
-  --accent-light: #eef3f0;     /* Translucent sage tint */
-  --card-bg: #ffffff;          /* Pure white card backgrounds to pop off the warm page background */
-  --card-border: #e6dfd1;      /* Soft beige borders to define structure */
-  --card-shadow: 0 4px 12px rgba(45, 50, 56, 0.03);
-  --card-hover-shadow: 0 16px 32px rgba(45, 50, 56, 0.06);
+  /* Balanced Soft Slate / Graphite Palette (Not harsh black, not glaring white) */
+  --background: #141820;       /* Calm dark slate background */
+  --foreground: #e6edf3;       /* High-readability crisp light text */
+  --primary: #58a6ff;          /* Vibrant developer blue */
+  --primary-hover: #388bfd;    /* Hover blue */
+  --secondary: #94a3b8;        /* Muted slate gray */
+  --accent: #3fb950;           /* Clean emerald/sage green for metrics & data */
+  --accent-light: rgba(63, 185, 80, 0.12); /* Subtle green tint */
+  --card-bg: #1c222e;          /* Elevated slate card background */
+  --card-border: #293242;      /* Hairline border for structure */
+  --card-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  --card-hover-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
   
   --font-serif: "Instrument Serif", Georgia, serif;
   --font-sans: "Plus Jakarta Sans", "Inter", sans-serif;
   --font-mono: "DM Mono", "Courier New", monospace;
-  --header-bg: rgba(247, 245, 240, 0.85); /* Matches background with high blur translucency */
+  --header-bg: rgba(20, 24, 32, 0.85); /* Frosted dark slate */
 }
-
 
 @theme inline {
   --color-background: var(--background);
@@ -48,7 +47,7 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Custom Scrollbar - Minimal and Editorial */
+/* Custom Scrollbar - Minimal and Sleek */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -81,11 +80,11 @@ a {
   transition: all 0.2s ease;
 }
 
-/* Subtle data-science dot grids (replaces AI flashy glowing grids) */
+/* Subtle technical dot grid */
 .bg-grid-pattern {
   background-image: radial-gradient(var(--card-border) 1px, transparent 1px);
-  background-size: 20px 20px;
-  opacity: 0.4;
+  background-size: 24px 24px;
+  opacity: 0.35;
 }
 
 /* Editorial layout structures */

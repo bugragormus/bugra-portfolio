@@ -41,13 +41,13 @@ export const cvData = {
   personal: {
     name: "Buğra Görmüş",
     title: "Data Scientist",
-    bio: "Passionate data scientist currently pursuing an MSc in Artificial Intelligence in Switzerland. Experienced in designing predictive models, time-series forecasting, and building scalable automated pipelines to extract value from complex datasets.",
+    bio: "Data Scientist & Machine Learning Engineer specializing in time-series forecasting, anomaly detection, and automated data pipelines. Experienced in structuring complex industrial datasets (ERP, IoT sensors, relational databases) and delivering high-impact business intelligence platforms. Combines strong software engineering fundamentals with mathematical modeling to build reliable, explainable, and scalable end-to-end analytical solutions.",
     email: "bugra.gormus@hotmail.com",
     phone: "+41 76 740 04 20",
     location: "Lugano, Switzerland",
     github: "https://github.com/bugragormus",
     linkedin: "https://linkedin.com/in/bugragormus",
-    website: "https://www.bugragormus.tech",
+    website: "https://bugragormus.dev",
   },
   skills: [
     {
@@ -172,16 +172,16 @@ export const cvData = {
   ] as Certification[],
   funFacts: [
     {
-      title: "Analytical Approach",
-      description: "Approaches software engineering from a mathematical and scientific angle, ensuring data-driven designs."
+      title: "YLSY National Fellow",
+      description: "Sole candidate selected nationwide by the Turkish Ministry of National Education for graduate AI studies abroad at USI Lugano."
     },
     {
-      title: "Collaborative Mindset",
-      description: "Strong foundation in collaborative development, refined through team bootcamps and rapid prototyping programs."
+      title: "Alpine Life & Lugano",
+      description: "Based in Ticino, Switzerland. When not training models or optimizing SQL queries, you'll find me hiking Monte Brè and exploring Swiss trails."
     },
     {
-      title: "Language Fluency",
-      description: "Bilingual in Turkish and English (IELTS Academic 6.5+ / 7.0 equivalent framework)."
+      title: "Domain Curiosity",
+      description: "Believes the best data science happens when paired with deep domain curiosity — from ceramic manufacturing IoT to Turkish Derby racing analytics."
     }
   ] as FunFact[]
 };
